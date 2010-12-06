@@ -1,23 +1,19 @@
-"""
-This file demonstrates two different styles of tests (one doctest and one
-unittest). These will both pass when you run "manage.py test".
+# vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
-Replace these with more appropriate tests for your application.
-"""
+from django.core.management import call_command
 
-from django.test import TestCase
+from django.db import connections
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.failUnlessEqual(1 + 1, 2)
+def setup():
+    for db in connections:
+        if globals().has_key('fixtures'):
+            call_command('loaddata', *globals()['fixtures'], **{'verbosity': 0, 'commit': False, 'database': db})
 
-__test__ = {"doctest": """
-Another way to test that 1 + 1 is equal to 2.
 
->>> 1 + 1 == 2
-True
-"""}
+
+def teardown():
+    for db in connections:
+        call_command('flush', verbosity=0, interactive=False, database=db)
+
+# EOF
 
