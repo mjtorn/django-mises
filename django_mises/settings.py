@@ -97,6 +97,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
+CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
+## Set MEDIA_ROOT and this in custom_settings
+#CKEDITOR_UPLOAD_PATH = '%supload/' % MEDIA_ROOT
+
 try:
     from custom_settings import *
 except ImportError:
