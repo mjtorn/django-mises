@@ -28,7 +28,10 @@ class Post(models.Model):
     updated_at = models.DateTimeField(verbose_name=_('Updated_at at'), auto_now=True)
 
     def get_absolute_url(self):
-        return reverse('post', post_id=self.id, slug=self.slug)
+        return reverse('post', kwargs={
+            'post_id': self.id,
+            'slug': self.slug,
+        })
 
     def get_preview_start(self):
         tail = ''
