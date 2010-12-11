@@ -1,5 +1,7 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
+from django.core.urlresolvers import resolve, reverse
+
 from django_mises.blog import models
 
 from django.template import Library
@@ -37,6 +39,27 @@ def blog_nav(context):
         'has_next': count > 0,
         'previous': post.id - 1,
         'next': post.id + 1,
+    }
+
+@register.inclusion_tag('tags/nav.html', takes_context=True)
+def nav(context, viewname, descr):
+    """Figure out the menu items
+    """
+
+    view, args, kwargs = resolve(context['request'].META['PATH_INFO'])
+
+    rev_view_name = reverse(viewname)
+
+    ## This should be considerably better in the next Django.
+    if view.func_name == resolve(rev_view_name)[0].func_name:
+        active = True
+    else:
+        active = False
+
+    return {
+        'active': active,
+        'link': reverse(viewname),
+        'descr': descr,
     }
 
 # EOF
