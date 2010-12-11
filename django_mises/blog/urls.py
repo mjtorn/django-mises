@@ -3,10 +3,10 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 
-from main import views
+from blog import views as blog_views
 
 urlpatterns = patterns('',
-    url(r'^post/(?P<post_id>\d+)/(?P<slug>.+)$', views.index, name='post'),
+    url(r'^post/(?P<post_id>\d+)/(?P<slug>.+)$', blog_views.index, name='post'),
 )
 
 # EOF
