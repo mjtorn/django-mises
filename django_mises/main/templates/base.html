@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>
+            Mises-Instituutti {% if title %} · {{ title }}{% endif %}
+        </title>
+        <link href="/media/css/screen.css" media="screen" type="text/css" rel="stylesheet" />
+        <link href="/media/css/print.css" media="print" type="text/css" rel="stylesheet" />
+        <link href="/media/css/DailyArticleStyles.css" media="print" type="text/css" rel="stylesheet" />
+    </head>
+
+    <body class="wideside">
+        <div id="header">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="{% url index %}">Ludwig von Mises -Instituutti</a>
+                </h1>
+                <p class="title" style="left: 136px;">
+                    Ludwig von Mises -Instituutti <em>Tu Ne Cede Malis</em>
+                </p>
+                <p class="tagline" style="top: 60px">
+                    Vastustajat eivät minua lainkaan huolestuta. Totuus, jota olen etsinyt, on niin mieleinen, että tyydyn siihen, että olen saanut sanoa sen kansalaisilleni; se on liikkumaton, eikä pelkää, vaikka laineet vyöryttävät sappeansa sen päälle. Se kestää, vaikka omanvoitonpyynti hautaa sen pohjamutaan, jolla raivoavat aallot sen peittävät, mutta pysyy kuitenkin kaiken tämän keskellä vuorenlujana ja järkähtämättömänä. <em>-- Anders Chydenius</em>
+                </p>
+                <ul class="usernav">
+                    <li class="first">
+                        <a href="{% url index %}">Rekisteröidy</a>
+                    </li>
+                    <li>
+                        <a href="{% url index %}">Kirjaudu</a>
+                    </li>
+                </ul>
+                <ul id="navigation">
+                    <li id="ctl00_ctl00_lnkHome" class="active">
+                        <a href="{% url index %}">Etusivu</a>
+                    </li>
+                    <li id="ctl00_ctl00_lnkAbout">
+                        <a href="{% url index %}">Tietoa</a>
+                    </li>
+                    <li id="ctl00_ctl00_lnkABlog">
+                        <a href="{% url index %}">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container main">
+            <div id="content">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <div class="box">
+                    <p>Ludwig von Mises -Instituutti</p>
+                    <p>Yhteydenotot: <a href="mailto:staff@mises.fi">staff@mises.fi</a></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
