@@ -1,3 +1,4 @@
+{% load misesfilters %}
 <html>
     <head>
         <title>
@@ -29,15 +30,14 @@
                     </li>
                 </ul>
                 <ul id="navigation">
-                    <li id="ctl00_ctl00_lnkHome" class="active">
-                        <a href="{% url index %}">Etusivu</a>
-                    </li>
-                    <li id="ctl00_ctl00_lnkAbout">
-                        <a href="{% url index %}">Tietoa</a>
-                    </li>
+                    {% nav "index" "Etusivu" %}
+                    {% nav "info" "Tietoa" %}
+                    {# this will be the current front page when we have more than blogs #}
+                    {% comment %}
                     <li id="ctl00_ctl00_lnkABlog">
                         <a href="{% url index %}">Blog</a>
                     </li>
+                    {% endcomment %}
                 </ul>
             </div>
         </div>
