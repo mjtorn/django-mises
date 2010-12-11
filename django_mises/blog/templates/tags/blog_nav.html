@@ -1,0 +1,19 @@
+<ul class="nav">
+    <li class="first">
+        {% if has_previous %}
+            <a id="blog_previous" href="{% url post previous %}">&laquo; Edellinen</a>
+    </li>
+    <li>
+            <a id="blog_index" href="{% url index %}">Blog</a>
+        {% else %}
+            <a id="blog_index" href="{% url index %}">Blog</a>
+    </li>
+        {% endif %}
+
+    <li>
+        {% if has_next %}
+            <a id="blog_previous" href="{% url post next %}">Seuraava &raquo;</a>
+        {% endif %}
+    </li>
+</ul>
+
