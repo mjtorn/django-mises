@@ -20,6 +20,8 @@ class Post(models.Model):
 
     title = models.CharField(verbose_name=_('Title'), max_length=256)
     slug = models.SlugField(verbose_name=_('Slug'), max_length=256)
+
+    preview = models.TextField()
     content = ckeditor_fields.RichTextField()
 
     publish_at = models.DateField(verbose_name=_('Publish at'), db_index=True)
@@ -28,8 +30,24 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post', post_id=self.id, slug=self.slug)
 
+    def get_preview_start(self):
+        tail = ''
+        if len(self.preview) > 300:
+            tail = '...'
+
+        return '%s%s' % (self.preview[:300], tail)
+
+    def save(self, *args, **kwargs):
+        from pyquery import PyQuery as pq
+
+        ## Based on the assumption ckeditor always uses paragraphs
+        preview = pq(self.content)('p').html()
+        self.preview = preview.strip()
+
+        return super(Post, self).save(*args, **kwargs)
+
     def __unicode__(self):
-        return u'%s: %s' % (self.id, self.title)
+        return u'%s: %s: %s' % (self.id, self.title, self.get_preview_start().replace('\r\n', ' ').strip())
 
 # EOF
 
