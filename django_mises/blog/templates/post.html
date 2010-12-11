@@ -1,5 +1,11 @@
 {% extends "base.html" %}
+{% load misesfilters %}
 {% block content %}
+
+<div class="rel">
+    {% blog_nav %}
+</div>
+
 <h1>{{ post.title }}</h1>
 <p class="meta">
     {{ post.publish_at|date|capfirst }}
