@@ -44,8 +44,13 @@ class Post(models.Model):
         from pyquery import PyQuery as pq
 
         ## Based on the assumption ckeditor always uses paragraphs
-        preview = pq(self.content)('p').html()
-        self.preview = preview.strip()
+        # Also skip if someone accidentally started with an empty p
+        for p in pq(self.content)('p'):
+            preview = pq(p).html()
+            preview = preview.strip()
+            if preview:
+                self.preview = preview
+                break
 
         return super(Post, self).save(*args, **kwargs)
 
