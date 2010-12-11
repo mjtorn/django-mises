@@ -7,6 +7,7 @@ from blog import views as blog_views
 
 urlpatterns = patterns('',
     url(r'^post/(?P<post_id>\d+)/(?P<slug>.+)$', blog_views.index, name='post'),
+    url(r'^post/(?P<post_id>\d+)$', blog_views.index, name='post'),
 )
 
 # EOF

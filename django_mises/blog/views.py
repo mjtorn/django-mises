@@ -8,7 +8,7 @@ from blog import models as blog_models
 
 import datetime
 
-def index(request, post_id, slug):
+def index(request, post_id, slug=None):
     """Index view
     """
 
