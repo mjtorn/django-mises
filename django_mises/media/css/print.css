@@ -1,0 +1,47 @@
+a[href]:after {
+   content: " (" attr(href) ") ";
+   font-size: 90%; 
+}
+
+/* TODO: FIX to relative URL.  */
+a[href^="/"]:after {
+   content: " (http://mises.org" attr(href) ") "; }
+	 
+#accessibility-menu, #navigation { 
+	display:none !important; }
+
+/**********************************************
+ * -------- Custom element hiding -------------
+ * By: Aristotle A. Esguerra
+ * Last update: 20090917
+ **********************************************/
+
+#sidebar,
+#header div.container ul.usernav,
+#header h1.logo,
+#content div.subscribe,
+#content div.rel,
+#content div.tagcloud,
+#content div.comments,
+#content div.bookmark,
+#content div.book-price {
+	display:none !important;
+}
+
+html, p, blockquote, li, dl, dd { font-size: 11pt !important; }
+
+a { text-decoration: none !important; }
+a img { border: 0 !important; }
+a:link, a:visited { color: #009; }
+
+#header p.title {
+	font-size: 18pt !important;
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+#header p.tagline {
+	font-size: 10pt !important;
+	padding-top: 0 !important;
+	margin-top: 0 !important;
+}

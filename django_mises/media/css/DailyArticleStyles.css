@@ -1,0 +1,944 @@
+/****************************************************
+ *
+ *  Additional CSS Styles for Mises Daily Articles, etc.
+ *  by Aristotle A. Esguerra
+ *  http://www.cantemusdomino.net/
+ *
+ *  -1. Weekend Edition TOC
+ *  0. Headers, Paragraphs and Lists
+ *  1. Editorial Preface
+ *  2. Pullquotes
+ *  3. Inline Book Advertisements
+ *  4. Notes
+ *  5. Images and Figures
+ *  6. Subscribe Container
+ *  7. Charts
+ *  8. Horizontal Rules
+ *  9. Nested Lists (Daily Article)
+ *  10. Other Fixes
+ *  11. http://www.mises.org/quiz.aspx
+ *  12. Interview Formatting
+ *  13. Daily Article Gallery
+ *  14. Page-based Navigation (Dailies, etc.)
+ *
+ ****************************************************/
+
+/* -1. Weekend Edition TOC */
+.weekend
+{
+    width: 700px;
+}
+.weekend, #content table.weekend tbody tr:hover td
+{
+    background-color: #c8cde1;
+}
+#content table.weekend td ul.left, #content table.weekend td ol.left
+{
+    background-color: transparent;
+    float: left;
+    width: 325px;
+}
+#content table.weekend td ul.right, #content table.weekend td ol.right
+{
+    background-color: transparent;
+    float: right;
+    width: 350px;
+}
+#content table.weekend td ul li a:hover
+{
+    background-color: transparent;
+}
+
+.toc
+{
+    background-color: #c8cde1;
+    width: 640px;
+}
+.toc, #content table.toc tbody tr:hover td
+{
+    background-color: #c8cde1;
+}
+
+#content table.toc td
+{
+    vertical-align: top;
+}
+
+#content table.toc tr td ul li,
+#content table.toc tr td ol li
+{
+    padding-left: 0px;
+    margin-left: 2em;
+    background-image: none;
+    background-color: transparent;
+    line-height: 1.5em;
+}
+#content table.toc tr td ul li
+{
+	list-style-type: disc;
+}
+
+ol.left li ul li {margin-left:2em !important;}
+ol.right li ul li {margin-left:4em !important;}
+
+#content table.toc td ul.left, #content table.toc td ol.left
+{
+    background-color: transparent;
+    float: left;
+    clear: left;
+    width: 295px;
+    max-width: 295px;
+}
+#content table.toc td ul.right, #content table.toc td ol.right
+{
+    background-color: transparent;
+    float: right;
+    clear: right;
+    width: 295px;
+    max-width: 295px;
+}
+
+#content table.toc td ol.upper-roman li, #content ol.upper-roman li, #DailyArticle ol.upper-roman li
+{
+    list-style-type: upper-roman;
+}
+
+/* Nested Outline-style TOC Lists */
+#toc table.toc td ol.upper-roman ol.decimal li, #toc ol.upper-roman ol.decimal li, #DailyArticle ol.upper-roman ol.decimal li
+{
+    list-style-type: decimal !important;
+    margin-left: 75px;
+}
+
+ul li ol.decimal li, ol li ol.decimal li
+{
+    background: none !important;
+    list-style-type: decimal !important;
+    list-style-image: none !important;
+    list-style-position: outside !important;
+    padding-left: 0 !important;
+}
+
+ol.lower-alpha li, ul li ol.decimal li ol.lower-alpha li
+{
+    list-style-type: lower-alpha !important;
+}
+
+table.toc td ol.left li ol li,
+table.toc td ol.right li ol li,
+table.toc td ul.left li ol li,
+table.toc td ul.right li ol li
+{
+    list-style-type: lower-alpha;
+    width: 200px;
+    max-width: 200px;
+}
+table.toc td ol.left li ul li,
+table.toc td ol.right li ul li,
+table.toc td ul.left li ul li,
+table.toc td ul.right li ul li
+{
+    list-style-type: disc;
+    width: 200px;
+    max-width: 200px;
+}
+
+table.toc td ul li a:hover
+{
+    background-color: transparent;
+}
+
+#toc {width:620px !important;margin-bottom:1.5em !important;}
+#toc ul.left {width: 45% !important;}
+#toc ul.right {width: 45% !important;}
+#toc ul.left ul {width: 100% !important;}
+#toc ul.right ul {width: 100% !important;}
+
+#toc ul {list-style-type: disc !important; padding-left: 0 !important; background: none !important; margin-left: 2em !important;}
+#toc ul li {list-style-type: disc !important; padding-left: 0 !important; background: none !important; margin-left: 0 !important;}
+#toc ol li {list-style-type: decimal !important; margin-left: 2em !important; }
+
+/* 0. Headers, Paragraphs and Lists */
+
+#DailyArticle h3, #DailyArticle h5 { font-style: italic !important; }
+#DailyArticle h2, #DailyArticle h3, #DailyArticle h4, #DailyArticle h5 {
+	margin: 1em 0 !important;
+	line-height: 1.1em !important;
+}
+
+#content blockquote a
+{
+    font-style: normal;
+}
+
+#content .upper-roman
+{
+    list-style-type: upper-roman;
+}
+
+#content ol.upper-alpha li
+{
+    list-style-type: upper-alpha;
+}
+
+/* 1. Editorial Preface */
+#content div.editorial-preface p
+{
+    font-style: italic;
+}
+
+#content div.editorial-preface p i, #content div.editorial-preface p em
+{
+    font-style: normal;
+}
+
+/* 2. Pullquotes */
+#content div.pullquote
+{
+    line-height: 1.5em;
+    float: right;
+    width: 225px;
+    padding-left: 1.5em;
+    padding-bottom: 1em;
+    font-style: italic;
+}
+
+#content div.pullquote i, #content div.pullquote em
+{
+    font-style: normal;
+}
+
+#content div.pullquote div.pullquote-author
+{
+    text-align: right;
+    font-style: normal;
+}
+
+#content div.pullquote div.pullquote-author i,
+#content div.pullquote div.pullquote-author em
+#content div.pullquote div.pullquote-author a i,
+#content div.pullquote div.pullquote-author a em
+{
+    font-style: italic;
+}
+
+/* 3. Inline Book Advertisements */
+#content div.book-ad, #content div.book-ad div.ad-title, #content div.book-ad div.pullquote, #content div.book-ad div.book-img {
+	width: 240px;
+	text-align: center !important;
+	margin: 0 auto;
+	padding: 0;
+}
+#content div.book-ad,
+#content div.book-ad.alignright {
+	float: right;
+	padding-left: 15px;
+	padding-bottom: 10px;
+}
+#content div.book-ad.alignleft {
+	float: left;
+	padding: 0 15px 10px 0;
+}
+#content div.book-ad.alignleft .book-img {
+	float: right;
+	width: 210px;
+}
+#content div.book-ad.alignleft .book-price {
+	float: left;
+	width: 30px;
+	vertical-align: middle;
+	display: table-cell;
+}
+#content div.book-ad div.ad-title {
+	font-family: Georgia, "Times New Roman" ,Times,serif;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+#content div.book-ad div.book-img { display: table-cell; }
+#content div.book-ad div.book-img img {
+	vertical-align: middle;
+	padding: 0px;
+}
+#content div.book-ad div.book-price {
+	vertical-align: middle;
+	text-align: right;
+	display: table-cell;
+}
+#content div.book-ad div.book-price a {
+	line-height: 18px;
+	font-size: 14px;
+	color: red;
+}
+#content div.book-ad div.pullquote {
+	clear: both;
+	line-height: 1.5em;
+	font-size: .8571em;
+	font-style: italic;
+	margin-top: 1em;
+}
+#content div.book-ad div.pullquote i, #content div.book-ad div.pullquote em { font-style: normal; }
+
+#content div.book-ad div.pullquote div.pullquote-author {
+	text-align: right;
+	font-style: normal;
+}
+
+#content div.book-ad div.caption {
+	clear: both;
+	line-height: 14px;
+	font-size: 12px;
+	text-align: center;
+	font-style: normal;
+	margin-top: 1em;
+}
+
+#content div.article-author
+{
+    border-top: 1px solid #ccc;
+    clear: both;
+    padding-top: 1.5em;
+}
+
+#content div.article-author p
+{
+    font-size: .8571em;
+    line-height: 1.3333em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+img.inline-icon {
+	display: inline !important;
+	float: none !important;
+	padding: 0 !important;
+	vertical-align: text-bottom;
+}
+
+
+.line-through
+{
+    text-decoration: line-through;
+}
+
+/* 4. Notes */
+#content a.noteref
+{
+	font-size: 9.8px;
+	line-height: 9.8px;
+	color: #1765bc !important;
+}
+#content div.notes
+{
+    clear: both;
+}
+
+#content div.notes blockquote
+{
+    background: transparent;
+    margin: 0;
+    padding: 1em;
+    font-style: normal;
+}
+
+#content div.notes blockquote em, #content div.notes blockquote i
+{
+    font-style: italic;
+}
+
+#content div.notes blockquote div.quote-in, #content div.notes blockquote div.quote-in p
+{
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+}
+
+#content div.notes table {font-size:1em;}
+#content div.notes table tbody tr:hover td {background-color: #ddd;}
+
+
+/* 5. Images and Figures */
+#content div.figure-left
+{
+    float: left;
+    text-align: center;
+    max-width: 300px;
+    padding-right: 1.5em;
+    padding-bottom: 1em;
+}
+
+#content div.figure, #content div.figure-right
+{
+    float: right;
+    text-align: center;
+    max-width: 300px;
+    padding-left: 1.5em;
+    padding-bottom: 1em;
+}
+
+#content div.figure div.caption,
+#content div.figure-left div.caption,
+#content div.figure-right div.caption,
+#content div.figure div.pullquote,
+#content div.figure-left div.pullquote,
+#content div.figure-right div.pullquote
+{
+    float: none;
+    text-align: center;
+    font-size: .8571em;
+    line-height: 1.3em;
+    width: auto;
+    max-width: 300px;
+    margin: .5em 0;
+}
+
+#content div.figure div.caption.title,
+#content div.figure-left div.caption.title,
+#content div.figure-right div.caption.title
+{
+    text-align: center;
+    font-size: .9285em;
+    font-weight: bold;
+	letter-spacing: -0.05em;
+    width: auto;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content div.figure div.caption-align-left,
+#content div.figure-left div.caption-align-left,
+#content div.figure-right div.caption-align-left
+{
+    text-align: left;
+    font-size: .8571em;
+    line-height: 1.3em;
+    width: auto;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content div.figure div.pullquote, #content div.figure-left div.pullquote, #content div.figure-right div.pullquote
+{
+    text-align: center;
+    clear: both;
+    padding: 0;
+    width: auto;
+    line-height: 1.5em;
+    font-style: italic;
+}
+
+#content div.figure div.pullquote i, #content div.figure div.pullquote em
+{
+    font-style: normal;
+}
+
+#content div.figure div.pullquote div.pullquote-author
+{
+    text-align: right;
+    font-style: normal;
+}
+
+#sidebar .featured .item
+{
+    float: right;
+}
+
+/* 6. Subscribe Container */
+#content div.subscribe
+{
+    clear: both;
+}
+
+#content div.subscribe a img
+{
+    margin-left: 65px;
+}
+
+/* 7. Charts */
+#content div.chart
+{
+    display: table;
+    clear: both;
+    width: 640px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+}
+
+#content div.chart ol,
+#content div.chart ul
+{
+	padding-top: 1.4em;
+}
+
+#content div.chart div.single-chart
+{
+    width: 640px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content div.chart div.single-chart div.table table
+{
+    margin: 0.2em auto;
+}
+
+div.single-chart table
+{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .8571em;
+}
+
+#content div.chart div.single-chart div.chart-title
+{
+    font-size: 1.1428em;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+    width: 640px;
+    max-width: 640px;
+    text-align: center;
+}
+
+#content div.chart div.single-chart div.chart-caption
+{
+    font-size: .9285em;
+    font-style: italic;
+    text-align: center;
+}
+
+#content div.chart div.single-chart div.image
+{
+    float: none;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+#content div.chart div.left-chart
+{
+    float: left;
+    width: 300px;
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#content div.chart div.right-chart
+{
+    float: right;
+    width: 300px;
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#content div.chart div.left-chart div.image, #content div.chart div.right-chart div.image
+{
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+#content div.chart div.left-chart div.table table, #content div.chart div.left-chart div.table table
+{
+    margin: 0.2em auto;
+}
+
+#content div.chart div.left-chart div.chart-title, #content div.chart div.right-chart div.chart-title
+{
+    font-size: 1.1428em;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+    width: 300px;
+    max-width: 300px;
+    text-align: center;
+}
+
+#content div.chart div.left-chart div.chart-caption, #content div.chart div.right-chart div.chart-caption
+{
+    font-size: .9285em;
+    font-style: italic;
+    text-align: center;
+}
+
+/* 8. Horizontal Rules */
+#content div.hr
+{
+    background: url('hr.png') no-repeat;
+    width: 400px;
+    height: 20px;
+    margin: 1em auto;
+}
+
+#content div.hr hr
+{
+    display: none;
+}
+
+/* 9. Nested Lists (Daily Article) */
+#DailyArticle ol li ul li
+{
+    background: none;
+    padding-left: 0;
+    list-style-type: disc;
+    font-size: 1em;
+}
+
+#DailyArticle ol li p.studyguide-comment
+{
+    margin-left: 55px;
+}
+
+/* 10. Other Fixes */
+ul.eventsbig li
+{
+    clear: both;
+}
+
+#content .bigger
+{
+    /* to scale text : was div.bigger until 2008.09.23 */
+    font-size: 1.1428em !important;
+}
+
+#content div.pullquote p
+{
+    /* scale text down to normal */
+    font-size: 1em !important;
+}
+
+div.pullquote p:first-child
+{
+    /* vertical-align with adjacent paragraph */
+    margin-top: 0px !important;
+}
+
+sub
+{
+    font-size: 0.5em !important;
+    vertical-align: sub !important;
+    line-height: 0 !important;
+}
+
+sup
+{
+    font-size: 0.5em !important;
+    vertical-align: super !important;
+    line-height: 0 !important;
+}
+
+/* For the subscribe text: WARNING: Hackish! */
+.subscribe
+{
+    font-size: .9285em !important;
+}
+.subscribe h5
+{
+    font-size: .8571em !important;
+}
+.subscribe label
+{
+    font-size: .8571em !important;
+}
+
+ol.upper-roman li
+{
+    list-style-type: upper-roman !important;
+}
+
+/* Homepage Whitespace Fixes 2008-07-20 */
+#content .blogteaser .cont
+{
+    margin-bottom: 0 !important;
+}
+#content .blogteaser .cont p
+{
+    margin: 0 !important;
+}
+#content .dailyarticles
+{
+    margin-bottom: 10px !important;
+}
+#content .box .cont ul.activity li
+{
+    padding: 5px 20px !important;
+}
+#content .activitywrapper ul
+{
+    padding-top: 2px !important;
+}
+
+/* Daily Article Preview Tweaks 2008-07-20 */
+#content .box .cont a.rss
+{
+    margin-right: 10px !important;
+}
+
+#content .blogteaser .cont
+{
+    margin-top: 0px !important;
+}
+
+#content .box .cont p a.more
+{
+    clear: none !important;
+    display: inline !important;
+    padding-left: 0 !important;
+    font-family: "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+    font-size: .5714em;
+    color: #D80E0E;
+}
+
+/* Community Tabs 2008-07-22 */
+#AustrianNetworkBlogs ul.tabs li a:hover, #AustrianNetworkForums ul.tabs li a:hover, #MisesBlogPosts ul.tabs li a:hover
+{
+    cursor: pointer !important;
+}
+#AustrianNetworkBlogs .cont ul li em,
+#AustrianNetworkForums .cont ul li em,
+#MisesBlogPosts .cont ul li em
+{
+    display: block !important;
+}
+#AustrianNetworkBlogs .cont ul.posts li, #AustrianNetworkForums .cont ul.posts li, #MisesBlogPosts .cont ul.posts li
+{
+    padding-right: 10px;
+}
+
+/* The Quotable Mises 2008-07-22 */
+#sidebar .outerbox div.widget-header h2
+{
+    font-size: 20px !important;
+    font-family: Georgia, "Times New Roman" ,Times,serif !important;
+    letter-spacing: -1px !important;
+    font-style: italic !important;
+    margin-bottom: 10px !important;
+}
+
+#sidebar .box h2,
+#sidebar .outerbox h2 { margin: .5em 0 0 !important; padding: 0 !important; }
+#sidebar .outerbox { padding-top: 0 !important; }
+
+#sidebar .cont .quote {
+	background-image: url(http://mises.org/Theme/images/bg_box-in.jpg);
+	background-color: transparent;
+}
+
+#sidebar .outerbox .quote
+{
+    /*  background-image: url(http://blog.mises.org/_ui/images/bg_box-in.jpg) !important; */
+    padding: 3px 3px 4px 3px !important;
+    line-height: 1.2em !important;
+    font: italic 1em "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+}
+
+#sidebar .quote .quote  { font-size: .8571em; }
+
+/* Featured Book 2008-07-23 */
+#sidebar .featured
+{
+    display: table !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+}
+#sidebar .featured p a.more
+{
+    clear: none !important;
+    display: inline !important;
+    padding-left: 0 !important;
+}
+
+
+/* Post-sIFR Fixes 2008-07-23 */
+#content div.shaded, #content .box .cont
+{
+    margin-top: 0px;
+}
+#content .twocol a.rss
+{
+	top: 4px;
+}
+
+#content ul.filter
+{
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+/* Community Tab Fix 2008-07-23 */
+.communitytabbed ul.tabs
+{
+    margin-top: 10px !important; /* to eliminate RSS icon overlap */
+}
+#sidebar a.rss
+{
+    height: 14px; /* so lower case fs and gs aren't cut off */
+}
+
+/* Smaller and larger fonts for figures, charts and ads */
+#content div.book-ad div.smaller,
+#content div.chart div.single-chart div.smaller,
+#content div.figure div.smaller,
+#content div.figure-left div.smaller
+{
+    font-size: .7857em;
+}
+
+/* 11. Mises.org Quiz */
+
+#Questions ol, #Questions ol li p.Question
+{
+    font-weight: bold !important;
+    display: block;
+    clear: both;
+}
+#Questions ol li p.Answers span input
+{
+    float: left;
+    clear: both;
+}
+#Questions ol li p.Answers span label
+{
+    width: 95% !important;
+    float: right !important;
+    display: block !important;
+    font-weight: normal !important;
+    margin-bottom: 0.5em !important;
+    padding: 0 !important;
+}
+#Questions ol li p.Answers span label:hover
+{
+    background: #efefef;
+    cursor: pointer;
+}
+#Questions div.hr
+{
+    display: block;
+    clear: both;
+}
+
+/* 12. Interview Formatting */
+
+#content dl.interview div.caption { font-size: 12px; }
+
+#content dl.interviewer-list dt
+{
+    color: #000;
+    font-weight: bold;
+}
+
+#content dl.interviewer-list dd
+{
+    list-style-type: circle;
+    margin-left: 20px;
+    clear: left;
+}
+
+#content dl.interview dt.interviewer
+{
+    color: #000;
+    font-weight: bold;
+}
+
+#content dl.interview { clear: both; }
+
+#content dl.interview dd.question { clear: left; }
+#content dl.interview dd.question p { margin-top: 0; }
+
+#content dl.interview dt.interviewee
+{
+    color: #000;
+    font-weight: bold;
+}
+
+#content dl.interview dd.answer { clear: left; }
+#content dl.interview dd.answer p { margin-top: 0; }
+
+/* 13. Daily Article Gallery */
+table#DailyArticleGallery { table-layout: fixed; }
+#DailyArticleGallery td {
+	vertical-align: top;
+	width: 124px;
+	margin: 0;
+	padding: 0;
+}
+#DailyArticleGallery tr:hover td { background: transparent; }
+#DailyArticleGallery .Article {
+	min-height: 110px;
+	width: 100px;
+	padding: 12px;
+	margin: 8px 2px;
+	float: left;
+	background: transparent url('http://mises.org/Theme/images/bg_box_article_gallery.png') 0 0 no-repeat;
+	color: #7e7e7e;
+}
+#DailyArticleGallery .Article a img {
+	height:75px !important;
+	width:100px !important;
+	padding:0 !important;
+}
+
+#DailyArticleGallery .Article .ArticleDate {}
+#DailyArticleGallery .Article a.ArticleTitle {
+	color: #000;
+}
+#DailyArticleGallery .Article:hover { background-position: -150px 0; }
+
+/* 14. Page-based Navigation (Dailies, etc.) */
+.Pager {
+	background: #f8f8f7;
+	border: 1px solid #e9e9e9 !important;
+	padding:.5em 1em !important;
+	font: normal .8571em "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+	text-align: center;
+}
+.Pager span span { font-weight: bold; }
+
+/* To be classified */
+#ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_divAuthorArchive { margin: 1em !important;}
+#ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_divAuthorArchive h3 { line-height: 1.1em !important; }
+
+/* 14. Comment on the Blog link */
+p.blog-link { font-size: 1em !important; }
+p.blog-link a { color: red; }
+
+
+/* DIFF STYLES */
+/*
+table {
+    border:1px solid #d9d9d9;
+}
+
+td {
+    border:1px solid #d9d9d9;
+    padding:3px;
+}
+*/
+/* ***************************************
+** Diff related styles
+*****************************************/
+
+ins {
+	background-color: #cfc;
+	text-decoration:inherit;
+
+}
+
+del {
+	color: #999;
+	background-color:#FEC8C8;
+}
+
+ins.mod {
+    background-color: #FFE1AC;
+}

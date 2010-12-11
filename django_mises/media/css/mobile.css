@@ -1,0 +1,174 @@
+﻿/* Generic iPhone CSS */
+
+body
+{
+    margin: 0;
+    padding: 0;   
+    min-height: 460px;
+}
+
+ul
+{
+    margin: 0;
+    padding: 0 20px 0 20px;
+    list-style-type: circle;
+    list-style-position: outside;
+}
+
+ol
+{
+    margin: 0;
+    padding: 0 25px 0 20px;
+    list-style-type: decimal;
+    list-style-position: outside;
+}
+
+li
+{
+    margin-bottom: 5px;
+    color: #555;
+    list-style-type: disc;
+    text-align: left;
+    padding-bottom: 5px;
+    font-size: 12px;
+    margin-right: -15px;
+    padding-top: 0;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+input
+{
+    max-width: 96%;
+}
+
+iframe
+{
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+code
+{
+    font-family: Courier, "Courier New" , mono;
+    color: red;
+}
+
+blockquote
+{
+    text-align: left;
+    padding: 1px 10px 1px 15px;
+    font-size: 90%;
+    border-left: 2px solid #ccc;
+    margin: 5px 15px;
+}
+
+.clearer
+{
+    clear: both;
+}
+
+#content
+{
+    margin-top: 45px;    
+    color: #444;
+    line-height: 145%;
+    display: block;
+}
+
+
+#content p
+{
+    margin: 2% 0 1%;
+    padding: 0;
+}
+
+h1 
+{
+    text-align:left;
+    }
+
+
+/* Main Navigation */
+ul#navigation
+{
+    /*     position: absolute;     top: 138px;     left: 133px;     width: 827px;     height: 40px;     background: url(../images/bg_nav.gif) repeat-x #f3eed8;     */
+}
+ul#navigation li
+{
+    float: left; /*    background: url(../images/nav_sep.gif) 0 14px no-repeat; */
+    padding-top: 8px;
+}
+ul#navigation li a
+{
+    float: left;
+    line-height: 32px;
+    padding: 0 18px 0;
+    font-size: 1em;
+    color: #333;
+}
+ul#navigation li a:hover
+{
+    color: #d80e0e;
+    text-decoration: none;
+}
+ul#navigation li.active a
+{
+    padding: 0 18px 0 18px;
+    position: relative;
+    left: 1px;
+    color: #d80e0e;
+    background: #fff;
+}
+ul#navigation li.active
+{
+    background: none;
+}
+
+ul#navigation li.l-dona a
+{
+    line-height: 22px;
+    font-size: .9285em;
+}
+
+
+/* Header */
+
+#header
+{
+    width: 100%;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #1e1e1e;
+    font-size: 19px;
+    background-color: Black;
+}
+
+#header-title
+{
+    text-shadow: #242424 -1px -1px 1px;
+    padding-top: 10px;
+    padding-left: 10px;
+    display: block;
+    margin: 0;
+    border-style: none;
+    padding-bottom: 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 85%;
+    font-weight: bold;
+    color: white;
+}
+
+#header-title a
+{
+    text-decoration: none;
+    letter-spacing: -1px;
+    position: relative;
+    font-family: HelveticaNeue-Bold, sans-serif;
+    color: white;
+}
