@@ -1,0 +1,14 @@
+bg = images used for backgrounds
+brd = border graphic, including corners
+logo = images with the clients logo
+nav = images used for navigation items
+bul = images used for the background of an li-element
+but = images used for form buttons or links that act as buttons
+ico = images that are icons, as part of a user interface(UI)
+lbl = images used for labels such as form field labels
+misc = images that cannot reasonably be classified into any group
+seal = images used for security seals for SSL, VISA, MC, AMEX, etc.
+adv = advertising images
+txt = for image replacement for text
+pic = for placeholder pics (i thing this should go into _media)
+
