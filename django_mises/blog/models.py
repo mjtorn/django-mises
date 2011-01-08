@@ -24,7 +24,7 @@ class Post(models.Model):
     preview = models.TextField()
     content = ckeditor_fields.RichTextField()
 
-    publish_at = models.DateField(verbose_name=_('Publish at'), db_index=True)
+    publish_at = models.DateField(verbose_name=_('Publish at'), db_index=True, null=True, blank=True, default=None)
     updated_at = models.DateTimeField(verbose_name=_('Updated_at at'), auto_now=True)
 
     def get_absolute_url(self):
