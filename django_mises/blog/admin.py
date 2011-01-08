@@ -14,7 +14,7 @@ class PostAdminForm(forms.ModelForm):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'co_author', 'publish_at')
+    list_display = ('title', 'author', 'co_author', 'publish_at')
     fieldsets = (
         (None, {
             'fields': ('co_author', 'title', 'content', 'publish_at')
@@ -38,7 +38,8 @@ class PostAdmin(admin.ModelAdmin):
             if val:
                 setattr(obj, f.name, val)
 
-        obj.author = request.user
+        if not hasattr(obj, 'author'):
+            obj.author = request.user
         obj.slug = slugify(obj.title)
 
         obj.save()
