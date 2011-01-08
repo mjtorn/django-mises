@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django_mises.prelaunch.middleware.RequireAdminMiddleware',
 )
 
 ROOT_URLCONF = 'django_mises.urls'
@@ -98,7 +99,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'django_mises.main',
-    'django_mises.blog'
+    'django_mises.blog',
+    'django_mises.prelaunch',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -109,6 +111,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
 ## Set MEDIA_ROOT and this in custom_settings
 #CKEDITOR_UPLOAD_PATH = '%supload/' % MEDIA_ROOT
+
+LOGIN_REDIRECT_URL = '/'
 
 try:
     from custom_settings import *
