@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>tu ne cede malis</title>
+</head>
+<body style="background-color: #f3eed8; color: #333333; font-family: Georgia, Times,serif;">
+<center><h1>Mises tulee - ota koppi!</h1></center>
+<form method="post" action="{% if next %}next={{ next }}{% endif %}">
+<p>
+{{ authenticate_admin_form.as_p }}
+</p>
+<button type="submit">Kirjaudu</button>
+</form>
+</body>
+</html>
+
