@@ -30,6 +30,12 @@ class PostAdmin(admin.ModelAdmin):
 
         return qs.filter(author=request.user)
 
+    def get_readonly_fields(self, request, obj=None):
+        ## This could be changed to something more sane
+        if not request.user.is_superuser:
+            return ('publish_at',)
+        return ()
+
     def save_model(self, request, obj, form, change):
         from pytils.translit import slugify
 
