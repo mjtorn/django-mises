@@ -1,9 +1,13 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
 from django.contrib.auth import REDIRECT_FIELD_NAME
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import forms as auth_forms
+
+from django.core.urlresolvers import reverse
 
 from django_mises.prelaunch import forms
+from django_mises.prelaunch import models
 
 from django.conf import settings
 
@@ -44,6 +48,40 @@ def admin_login(request, redirect_field_name=REDIRECT_FIELD_NAME):
     req_ctx = RequestContext(request, context)
 
     return render_to_response('admin_login.html', req_ctx)
+
+def set_password(request, invitation_secret):
+    """View for setting password
+    """
+
+    try:
+        invitation = models.Invitation.objects.get(secret=invitation_secret, used_at__isnull=True)
+    except models.Invitation.DoesNotExist:
+        return HttpResponseRedirect('/')
+
+    data = request.POST.copy() or None
+
+    set_password_form = auth_forms.SetPasswordForm(invitation.user, data=data)
+    if set_password_form.is_bound:
+        if set_password_form.is_valid():
+            import datetime
+
+            invitation.user.is_active = True
+
+            set_password_form.save()
+            user = authenticate(username=invitation.user.username, password=set_password_form.cleaned_data['new_password1'])
+            login(request, user)
+
+            invitation.used_at = datetime.datetime.now()
+            invitation.save()
+
+            return HttpResponseRedirect(reverse('admin:index'))
+
+    context = {
+        'set_password_form': set_password_form,
+    }
+    req_ctx = RequestContext(request, context)
+
+    return render_to_response('invitation_set_password.html', req_ctx)
 
 # EOF
 
