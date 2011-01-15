@@ -3,7 +3,7 @@
         "pk": 1, 
         "model": "auth.user", 
         "fields": {
-            "username": "mjt@nysv.org", 
+            "username": "mjt", 
             "first_name": "Markus", 
             "last_name": "Törnqvist", 
             "is_active": true, 
@@ -14,7 +14,7 @@
                 1
             ], 
             "user_permissions": [], 
-            "password": "sha1$6b5cd$a5992991c0b82f47ef351dd90b9a6ab7dd6554e7", 
+            "password": "", 
             "email": "mjt@nysv.org", 
             "date_joined": "2009-03-24 09:41:27"
         }
