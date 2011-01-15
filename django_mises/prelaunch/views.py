@@ -61,11 +61,13 @@ def set_password(request, invitation_secret):
     data = request.POST.copy() or None
 
     set_password_form = auth_forms.SetPasswordForm(invitation.user, data=data)
-    if set_password_form.is_bound:
-        if set_password_form.is_valid():
+    username_form = forms.UsernameForm(data=data)
+    if set_password_form.is_bound and username_form.is_bound:
+        if set_password_form.is_valid() and username_form.is_valid():
             import datetime
 
             invitation.user.is_active = True
+            invitation.user.username = username_form.cleaned_data['username']
 
             set_password_form.save()
             user = authenticate(username=invitation.user.username, password=set_password_form.cleaned_data['new_password1'])
@@ -77,6 +79,7 @@ def set_password(request, invitation_secret):
             return HttpResponseRedirect(reverse('admin:index'))
 
     context = {
+        'username_form': username_form,
         'set_password_form': set_password_form,
     }
     req_ctx = RequestContext(request, context)
