@@ -60,19 +60,23 @@ def set_password(request, invitation_secret):
 
     data = request.POST.copy() or None
 
+    ## Hits the database to request user but do not care
     set_password_form = auth_forms.SetPasswordForm(invitation.user, data=data)
     username_form = forms.UsernameForm(data=data)
     if set_password_form.is_bound and username_form.is_bound:
         if set_password_form.is_valid() and username_form.is_valid():
             import datetime
 
+            ## This data needs to be updated over the initial info
             invitation.user.is_active = True
             invitation.user.username = username_form.cleaned_data['username']
 
+            ## Because of object references, this saves activity and username
             set_password_form.save()
             user = authenticate(username=invitation.user.username, password=set_password_form.cleaned_data['new_password1'])
             login(request, user)
 
+            ## So future leaks of the secret do not matter
             invitation.used_at = datetime.datetime.now()
             invitation.save()
 
