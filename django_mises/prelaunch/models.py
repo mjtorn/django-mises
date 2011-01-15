@@ -20,6 +20,8 @@ class Invitation(models.Model):
     last_name = models.CharField(max_length=30)
     email = models.EmailField(max_length=75, unique=True)
 
+    user = models.ForeignKey(auth_models.User)
+
     secret = models.CharField(max_length=40)
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -31,8 +33,6 @@ class Invitation(models.Model):
 
             secret = '%s%s' % (str(random.random()).split('.')[1], str(time.time()).replace('.', ''))
             self.secret = hashlib.sha1(secret).hexdigest()
-
-            super(Invitation, self).save(*args, **kwargs)
 
             user = auth_models.User()
 
@@ -47,6 +47,10 @@ class Invitation(models.Model):
             user.is_active = False
 
             user.save()
+
+            self.user = user
+
+            super(Invitation, self).save(*args, **kwargs)
 
             user.groups.add(AUTHOR_GROUP)
 
