@@ -10,7 +10,7 @@ from main import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^info/$', flatpages_views.flatpage, {'url': '/info/'}, name='info'),
-    url(r'^user/(?P<username>\w+)$', views.index, name='user'),
+    url(r'^user/(?P<username>[\w.@+-]+)$', views.index, name='user'),
 )
 
 # EOF
