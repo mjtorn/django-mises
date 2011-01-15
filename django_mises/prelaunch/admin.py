@@ -33,7 +33,7 @@ class InvitationAdmin(admin.ModelAdmin):
         """What are we not allowed to edit
         """
 
-        return ('secret', 'created_at', 'used_at')
+        return ('user', 'secret', 'created_at', 'used_at')
 
 
 admin.site.register(mises_models.Invitation, InvitationAdmin)
