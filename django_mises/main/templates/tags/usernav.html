@@ -3,7 +3,7 @@
         {% if user.id %}
         <a href="{% url user user.username %}">Oma profiili</a>
         {% else %}
-        <a href="{% url index %}">Rekisteröidy</a>
+        <a href="{% url register %}">Rekisteröidy</a>
         {% endif %}
     </li>
     <li>
