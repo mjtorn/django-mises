@@ -6,11 +6,11 @@ from django.shortcuts import get_object_or_404, render_to_response
 
 from blog import models as blog_models
 
-import datetime
-
 def post(request, post_id, slug=None):
     """Index view
     """
+
+    import datetime
 
     now = datetime.datetime.now()
 
