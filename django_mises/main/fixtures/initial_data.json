@@ -17,5 +17,40 @@
                 26
             ]
         }
-    } 
+    },
+    {
+        "pk": 1, 
+        "model": "main.slogan", 
+        "fields": {
+            "slogan": "Tu Ne Cede Malis"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "main.slogan", 
+        "fields": {
+            "slogan": "Visioita valtionj\u00e4lkeisest\u00e4 maailmasta"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "main.slogan", 
+        "fields": {
+            "slogan": "Vapauden puolesta, valtiota vastaan"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "main.slogan", 
+        "fields": {
+            "slogan": "Valtiota vastaan, hyvyyden puolesta"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "main.slogan", 
+        "fields": {
+            "slogan": "Yhteiskunta aina yli valtion"
+        }
+    }
 ]
