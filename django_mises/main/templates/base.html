@@ -21,14 +21,7 @@
                 <p class="tagline" style="top: 60px">
                     Vastustajat eivät minua lainkaan huolestuta. Totuus, jota olen etsinyt, on niin mieleinen, että tyydyn siihen, että olen saanut sanoa sen kansalaisilleni; se on liikkumaton, eikä pelkää, vaikka laineet vyöryttävät sappeansa sen päälle. Se kestää, vaikka omanvoitonpyynti hautaa sen pohjamutaan, jolla raivoavat aallot sen peittävät, mutta pysyy kuitenkin kaiken tämän keskellä vuorenlujana ja järkähtämättömänä. <em>-- Anders Chydenius</em>
                 </p>
-                <ul class="usernav">
-                    <li class="first">
-                        <a href="{% url index %}">Rekisteröidy</a>
-                    </li>
-                    <li>
-                        <a href="{% url index %}">Kirjaudu</a>
-                    </li>
-                </ul>
+                {% include "tags/usernav.html" %}
                 <ul id="navigation">
                     {% nav "index" "Etusivu" %}
                     {% nav "info" "Tietoa" %}

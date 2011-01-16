@@ -1,0 +1,17 @@
+<ul class="usernav">
+    <li class="first">
+        {% if user.id %}
+        <a href="{% url user user.username %}">Oma profiili</a>
+        {% else %}
+        <a href="{% url index %}">Rekisteröidy</a>
+        {% endif %}
+    </li>
+    <li>
+        {% if user.id %}
+        <a href="{% url logout %}">Kirjaudu ulos</a>
+        {% else %}
+        <a href="{% url login %}">Kirjaudu</a>
+        {% endif %}
+    </li>
+</ul>
+
