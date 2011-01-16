@@ -12,7 +12,12 @@ class RequireAdminMiddleware(object):
 
         if request.user.id and request.user.is_staff:
             return None
-        
+        else:
+            from django.core.urlresolvers import resolve
+            func, args, kwargs = resolve(request.path)
+            if kwargs.has_key('invitation_secret'):
+                return None
+
         return views.admin_login(request)
 
 # EOF
