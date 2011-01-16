@@ -2,7 +2,9 @@
 
 from django.core.urlresolvers import resolve, reverse
 
-from django_mises.blog import models
+from django_mises.blog import models as blog_models
+
+from django_mises.main import models as main_models
 
 from django.template import Library
 
@@ -20,6 +22,13 @@ def getitem(ob, item):
     except (KeyError, IndexError):
         return None
 
+@register.simple_tag
+def random_slogan():
+    """Get a random slogan
+    """
+
+    return main_models.Slogan.objects.all().order_by('?').values('slogan')[0]['slogan']
+
 @register.inclusion_tag('tags/blog_preview.html')
 def blog_preview():
     """Return a list of latest published blogs
@@ -27,7 +36,7 @@ def blog_preview():
 
     now = datetime.datetime.now()
 
-    posts = models.Post.objects.filter(publish_at__lte=now).select_related().order_by('-publish_at')[:10]
+    posts = blog_models.Post.objects.filter(publish_at__lte=now).select_related().order_by('-publish_at')[:10]
 
     return {
         'posts': posts,
@@ -42,7 +51,7 @@ def blog_nav(context):
 
     post = context['post']
 
-    count = models.Post.objects.filter(publish_at__lte=now, id__gt=post.id).count()
+    count = blog_models.Post.objects.filter(publish_at__lte=now, id__gt=post.id).count()
 
     return {
         'has_previous': post.id > 1,
