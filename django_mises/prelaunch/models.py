@@ -27,6 +27,9 @@ class Invitation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     used_at = models.DateTimeField(null=True, blank=True, default=None)
 
+    def __unicode__(self):
+        return '%s' % self.email
+
     def save(self, *args, **kwargs):
         if not self.id:
             from django.core import mail
