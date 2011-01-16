@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load misesfilters %}
+
+{# Borrow from Django #}
+{% block content %}
+{% if form.errors|getitem:"__all__" %}
+<p class="errornote">{{ form.errors|getitem:"__all__"|join:", " }}</p>
+{% endif %}
+<form action="{{ app_path }}" method="post" id="login-form">
+    {% csrf_token %}
+    <table class="form-row">
+        <tr>
+            <th>{% trans form.username.label %}</th>
+            <td>{{ form.username }}{% if form.username.errors %}<br />{{ form.username.errors|join:", " }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>{% trans form.password.label %}</th>
+            <td>{{ form.password }}{% if form.password.errors %}<br />{{ form.password.errors|join:", " }}{% endif %}</td>
+        </tr>
+        <input type="hidden" name="this_is_the_login_form" value="1" />
+    </table>
+    <div class="submit-row">
+        <label>&nbsp;</label><input type="submit" value="{% trans 'Log in' %}" />
+    </div>
+</form>
+
+{% endblock content %}
+
