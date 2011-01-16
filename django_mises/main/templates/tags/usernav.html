@@ -6,6 +6,11 @@
         <a href="{% url register %}">Rekisteröidy</a>
         {% endif %}
     </li>
+    {% if user.is_staff %}
+    <li>
+        <a href="{% url admin:index %}">Ylläpito</a>
+    </li>
+    {% endif %}
     <li>
         {% if user.id %}
         <a href="{% url logout %}">Kirjaudu ulos</a>
