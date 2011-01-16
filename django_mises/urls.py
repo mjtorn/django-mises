@@ -9,6 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^', include('django_mises.main.urls')),
     (r'^', include('django_mises.blog.urls')),
+    (r'^', include('django_mises.users.urls')),
     (r'^', include('django_mises.prelaunch.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

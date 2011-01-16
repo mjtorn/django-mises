@@ -100,6 +100,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'django_mises.main',
     'django_mises.blog',
+    'django_mises.users',
     'django_mises.prelaunch',
 )
 

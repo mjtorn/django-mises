@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Käyttäjätunnus</th><td>{{ viewed_user.username }}</td>
+    <tr>
+    </tr>
+        <th>Nimi</th><td>{{ viewed_user.first_name }} {{ viewed_user.last_name }}</td>
+    <tr>
+    {% if post_cont %}
+    </tr>
+        <th>Artikkelien määrä</th><td>{{ post_count }}</td>
+    </tr>
+    {% endif %}
+</table>
+{% endblock content %}
+
+
