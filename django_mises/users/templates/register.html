@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load misesfilters %}
+
+{% block content %}
+<h3>Rekisteröityminen</h3>
+{% if user_creation_form.errors|getitem:"__all__" %}
+<p class="errornote">{{ user_creation_form.errors|getitem:"__all__"|join:", " }}</p>
+{% endif %}
+
+<form action="{{ app_path }}" method="post" id="register-form">
+    {% csrf_token %}
+    <table class="form-row">
+        <tr>
+            <th>{% trans user_creation_form.username.label %}</th>
+            <td>{{ user_creation_form.username }}{% if user_creation_form.username.errors %}<br />{{ user_creation_form.username.errors|join:", " }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>{% trans user_creation_form.password1.label %}</th>
+            <td>{{ user_creation_form.password1 }}{% if user_creation_form.password1.errors %}<br />{{ user_creation_form.password1.errors|join:", " }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>{% trans user_creation_form.password2.label %}</th>
+            <td>{{ user_creation_form.password2 }}{% if user_creation_form.password2.errors %}<br />{{ user_creation_form.password2.errors|join:", " }}{% endif %}</td>
+        </tr>
+    </table>
+    <div class="submit-row">
+        <label>&nbsp;</label><input type="submit" value="Rekisteröidy" />
+    </div>
+</form>
+
+{% endblock content %}
+
