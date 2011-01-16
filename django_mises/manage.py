@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+
+import os
+if os.environ.has_key('VIRTUALENV'):
+    virtual_env = os.environ['VIRTUALENV']
+    this_file = '%s/bin/activate_this.py' % virtual_env
+    execfile(this_file, dict(__file__=this_file))
+
 from django.core.management import execute_manager
 try:
     import settings # Assumed to be in the same directory.
