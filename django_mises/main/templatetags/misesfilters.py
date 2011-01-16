@@ -10,6 +10,16 @@ import datetime
 
 register = Library()
 
+@register.filter
+def getitem(ob, item):
+    """get item from ob
+    """
+
+    try:
+        return ob[item]
+    except (KeyError, IndexError):
+        return None
+
 @register.inclusion_tag('tags/blog_preview.html')
 def blog_preview():
     """Return a list of latest published blogs
