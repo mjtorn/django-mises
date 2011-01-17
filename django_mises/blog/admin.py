@@ -33,6 +33,8 @@ class PostAdmin(admin.ModelAdmin):
     def get_readonly_fields(self, request, obj=None):
         ## This could be changed to something more sane
         if not request.user.is_superuser:
+            if request.user.has_perm('blog.can_publish'):
+                return ()
             return ('publish_at',)
         return ()
 
