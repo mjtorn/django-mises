@@ -27,6 +27,11 @@ class Post(models.Model):
     publish_at = models.DateField(verbose_name=_('Publish at'), db_index=True, null=True, blank=True, default=None)
     updated_at = models.DateTimeField(verbose_name=_('Updated_at at'), auto_now=True)
 
+    class Meta:
+        permissions = (
+            ('can_publish', 'Can set a publishing date'),
+        )
+
     def get_absolute_url(self):
         return reverse('post', kwargs={
             'post_id': self.id,
