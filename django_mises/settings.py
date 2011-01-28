@@ -115,6 +115,8 @@ CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
 
 LOGIN_REDIRECT_URL = '/'
 
+APPEND_SLASH = False
+
 try:
     from custom_settings import *
 except ImportError:
