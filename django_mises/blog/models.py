@@ -38,6 +38,12 @@ class Post(models.Model):
             'slug': self.slug,
         })
 
+    def get_preview_url(self):
+        return reverse('preview', kwargs={
+            'post_id': self.id,
+            'slug': self.slug,
+        })
+
     def get_preview_start(self):
         tail = ''
         if len(self.preview) > 300:
