@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, render_to_response
 
 from blog import models as blog_models
 
-def post(request, post_id, slug=None):
+def post(request, post_id, slug=None, preview=False):
     """Index view
     """
 
@@ -14,7 +14,10 @@ def post(request, post_id, slug=None):
 
     now = datetime.datetime.now()
 
-    post = get_object_or_404(blog_models.Post, id=post_id, publish_at__lte=now)
+    if preview:
+        post = get_object_or_404(blog_models.Post, id=post_id, slug=slug)
+    else:
+        post = get_object_or_404(blog_models.Post, id=post_id, publish_at__lte=now)
 
     context = {
         'post': post,
