@@ -1,0 +1,15 @@
+{% extends "admin/change_form.html" %}
+
+{% block object-tools %}
+{{ block.super }}
+<p style="margin-top: 20px;">
+<ul class="object-tools">
+    <li>
+        <a class="viewsitelink" href="{{ original.get_preview_url }}" target="_new">
+            Esikatsele
+        </a>
+    </li>
+</ul>
+</p>
+{% endblock object-tools %}
+
