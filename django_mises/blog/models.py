@@ -22,6 +22,7 @@ class Post(models.Model):
     slug = models.SlugField(verbose_name=_('Slug'), max_length=256)
 
     preview = models.TextField()
+    preview_img = models.CharField(max_length=256, null=True, blank=True, default=None)
     content = ckeditor_fields.RichTextField()
 
     publish_at = models.DateField(verbose_name=_('Publish at'), db_index=True, null=True, blank=True, default=None)
@@ -62,6 +63,16 @@ class Post(models.Model):
             if preview:
                 self.preview = preview
                 break
+
+        ## Find image
+        img_html = None
+        for p in pq(self.content)('p'):
+            if p is not None:
+                # Returns None if not found
+                img_src = pq(p)('img').attr('src')
+                if img_src:
+                    self.preview_img = img_src
+                    break
 
         return super(Post, self).save(*args, **kwargs)
 
