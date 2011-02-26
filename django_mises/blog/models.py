@@ -59,6 +59,12 @@ class Post(models.Model):
         # Also skip if someone accidentally started with an empty p
         for p in pq(self.content)('p') + pq(self.content)('div'):
             preview = pq(p).html()
+
+            # Policy dictates reprints are noted with <em> tags at the start
+            print preview
+            if pq(preview)('em'):
+                continue
+
             preview = preview.strip()
             if preview:
                 self.preview = preview
@@ -70,6 +76,7 @@ class Post(models.Model):
             if p is not None:
                 # Returns None if not found
                 img_src = pq(p)('img').attr('src')
+                print img_src
                 if img_src:
                     self.preview_img = img_src
                     break
