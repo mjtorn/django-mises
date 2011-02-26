@@ -2,34 +2,33 @@
                     {% url post post.id post.slug as post_url %}
                     <div class="box blogteaser">
                         <div class="cont">
-                            {% comment %}
                             <!-- RSS here
 <a href="/dailyarticles.xml" title="Subscribe to Mises Institute Daily Articles" class="rss">rss</a>
                             -->
-                            {% endcomment %}
                             <h2>
-                                <a href="{{ post_url }}" id="post_{{ forloop.counter }}">{{ post.title }}</a>
+                                <a href="{{ post_url }}" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkTitle">{{ post.title }}</a>
                             </h2>
                             <p class="author">
                                 {{ post.publish_at|date|capfirst }}
                                 kirjoittanut
-                                <a id="date_{{ forloop.counter }}" href="{% url user post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
+                                <a id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkAuthor" href="{% url user post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
                             </p>
+                            {% comment %}
                             <div class="bord-se">
                                 <div class="bord-ne">
                                     <div class="bord-s">
-                                        <a href="{{ post_url }}" id="smallimg_{{ forloop.counter }}">
+                                        <a href="{{ post_url }}" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkImage">
                                             <img src="http://images.mises.org/DailyArticleImages/4873.jpg" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_imgStory" style="margin: 5px;" alt="Thumbnail" height="75" width="100">
                                         </a>
                                     </div>
                                 </div>
                             </div>
+                            {% endcomment %}
                             <p>
                                 {{ post.preview|safe }}
-                                <a href="{{ post_url }}" class="more" id="post_link_{{ forloop.counter }}">Lue lisää…</a>
+                                <a href="{{ post_url }}" class="more" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkMore">read more…</a>
                             </p>
                         </div>
                     </div>
                 {% endfor %}
-
 
