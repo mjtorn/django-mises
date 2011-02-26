@@ -13,17 +13,17 @@
                                 kirjoittanut
                                 <a id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkAuthor" href="{% url user post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
                             </p>
-                            {% comment %}
+                            {% if post.preview_img %}
                             <div class="bord-se">
                                 <div class="bord-ne">
                                     <div class="bord-s">
                                         <a href="{{ post_url }}" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkImage">
-                                            <img src="http://images.mises.org/DailyArticleImages/4873.jpg" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_imgStory" style="margin: 5px;" alt="Thumbnail" height="75" width="100">
+                                            <img src="{{ post.preview_img }}" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_imgStory" style="margin: 5px;" alt="Thumbnail" height="75" width="100">
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            {% endcomment %}
+                            {% endif %}
                             <p>
                                 {{ post.preview|safe }}
                                 <a href="{{ post_url }}" class="more" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkMore">read more…</a>
