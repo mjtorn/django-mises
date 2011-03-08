@@ -25,17 +25,18 @@ class PostAdmin(admin.ModelAdmin):
 
     def queryset(self, request):
         qs = super(PostAdmin, self).queryset(request)
-        if request.user.is_superuser or request.user.has_perm('blog.can_edit') or request.user.has_perm('blog.can_publish'):
+        if request.user.has_perm('blog.change_post') or request.user.has_perm('blog.can_edit') or request.user.has_perm('blog.can_publish'):
             return qs
 
         return qs.filter(author=request.user)
 
     def get_readonly_fields(self, request, obj=None):
-        ## This could be changed to something more sane
         if not request.user.is_superuser:
             if request.user.has_perm('blog.can_publish'):
                 return ()
-            return ('publish_at',)
+            elif request.user.has_perm('blog.can_edit'):
+                return ('co_author', 'publish_at',)
+            return ('co_author', 'title', 'content', 'publish_at',)
         return ()
 
     def save_model(self, request, obj, form, change):
