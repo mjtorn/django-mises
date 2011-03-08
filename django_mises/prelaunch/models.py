@@ -12,9 +12,6 @@ import random
 
 import time
 
-## The immutable principle on which all speculation is impossible
-AUTHOR_GROUP = auth_models.Group.objects.get(name='Authors')
-
 class Invitation(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -32,6 +29,8 @@ class Invitation(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
+            author_group = auth_models.Group.objects.get(name='Authors')
+
             from django.core import mail
 
             secret = '%s%s' % (str(random.random()).split('.')[1], str(time.time()).replace('.', ''))
@@ -55,7 +54,7 @@ class Invitation(models.Model):
 
             super(Invitation, self).save(*args, **kwargs)
 
-            user.groups.add(AUTHOR_GROUP)
+            user.groups.add(author_group)
 
             email = mail.EmailMessage(
                 to = (user.email,),
