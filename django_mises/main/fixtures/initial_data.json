@@ -34,12 +34,5 @@
         "fields": {
             "slogan": "Tu Ne Cede Malis"
         }
-    }, 
-    {
-        "pk": 2, 
-        "model": "main.slogan", 
-        "fields": {
-            "slogan": "\u00e4l\u00e4 antaudu pahalle"
-        }
     }
 ]
