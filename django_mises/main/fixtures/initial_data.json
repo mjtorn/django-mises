@@ -13,8 +13,8 @@
         "fields": {
             "name": "Authors", 
             "permissions": [
-                25, 
-                26
+                31, 
+                32
             ]
         }
     },
