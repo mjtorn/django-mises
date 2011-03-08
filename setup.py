@@ -56,7 +56,7 @@ setup(
 #    package_data = package_data, # MANIFEST.in where available
     include_package_data = True,
     long_description = '%s.' % NAME,
-    install_requires = ('django==1.2.3', 'PIL', 'django-annoying==0.7.5', 'django-ckeditor==0.0.8', 'pyquery==0.6.1', 'lxml==2.3beta1'),
+    install_requires = ('django==1.2.3', 'PIL', 'django-annoying==0.7.5', 'django-ckeditor==0.0.8', 'pyquery==0.6.1', 'lxml==2.3beta1', 'pytils==0.2.3'),
 )
 
 # EOF
