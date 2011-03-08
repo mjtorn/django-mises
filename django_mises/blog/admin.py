@@ -36,7 +36,14 @@ class PostAdmin(admin.ModelAdmin):
                 return ()
             elif request.user.has_perm('blog.can_edit'):
                 return ('co_author', 'publish_at',)
-            return ('co_author', 'title', 'content', 'publish_at',)
+            else:
+                if obj is not None and request.user.id == obj.author.id:
+                    readonly = ('publish_at',)
+                elif obj is None:
+                    readonly = ('publish_at',)
+                else:
+                    readonly = ('co_author', 'title', 'content', 'publish_at',)
+                return readonly
         return ()
 
     def save_model(self, request, obj, form, change):
