@@ -57,6 +57,11 @@ class Post(models.Model):
 
         ## Based on the assumption ckeditor always uses paragraphs
         # Also skip if someone accidentally started with an empty p
+        # Also find image
+        img_html = None
+        first = True
+        self.preview = None
+        self.preview_img = None
         for p in pq(self.content)('p') + pq(self.content)('div'):
             preview = pq(p).html()
 
@@ -65,20 +70,21 @@ class Post(models.Model):
                 continue
 
             preview = preview.strip()
-            if preview:
+            if preview and not self.preview:
                 self.preview = preview
+                if self.preview_img:
+                    break
+
+            # Returns None if not found
+            img = pq(p)('img')
+            img_src = img.attr('src')
+            if img_src:
+                self.preview_img = img_src
+                if first:
+                    self.preview = self.preview.strip(img.outerHtml())
                 break
 
-        ## Find image
-        img_html = None
-        for p in pq(self.content)('p') + pq(self.content)('div'):
-            if p is not None:
-                # Returns None if not found
-                img_src = pq(p)('img').attr('src')
-                print img_src
-                if img_src:
-                    self.preview_img = img_src
-                    break
+            first = False
 
         return super(Post, self).save(*args, **kwargs)
 
