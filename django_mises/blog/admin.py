@@ -25,7 +25,7 @@ class PostAdmin(admin.ModelAdmin):
 
     def queryset(self, request):
         qs = super(PostAdmin, self).queryset(request)
-        if request.user.is_superuser:
+        if request.user.is_superuser or request.user.has_perm('blog.can_edit'):
             return qs
 
         return qs.filter(author=request.user)
