@@ -31,6 +31,7 @@ class Post(models.Model):
     class Meta:
         permissions = (
             ('can_publish', 'Can set a publishing date'),
+            ('can_edit', 'Can edit posts by others'),
         )
 
     def get_absolute_url(self):
