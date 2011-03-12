@@ -47,6 +47,35 @@ class PostAdmin(admin.ModelAdmin):
                 return readonly
         return ()
 
+    def change_view(self, request, object_id, extra_context=None):
+        """Deal with custom editing
+        """
+
+        from django_mises import comments
+
+        data = request.POST.copy() or None
+
+        obj = models.Post.objects.get(id=object_id)
+
+        ## Handle our data, let the rest flow over
+        comment_form = comments.get_internal_form()(obj, data)
+        context = {
+            'comment_form': comment_form,
+        }
+
+        if data is not None:
+            if data.has_key('internal_comment'):
+
+                if comment_form.is_bound:
+                    if comment_form.is_valid():
+                        ## Do not allow tampering
+                        comment_form.cleaned_data['user'] = request.user
+
+                        comment = comment_form.save()
+
+        ## Maybe redirect out, maybe complain
+        return super(PostAdmin, self).change_view(request, object_id, extra_context=context)
+
     def save_model(self, request, obj, form, change):
         from pytils.translit import slugify
 
