@@ -57,9 +57,12 @@ class PostAdmin(admin.ModelAdmin):
 
         obj = models.Post.objects.get(id=object_id)
 
+        internal_comments = comments.get_model().objects.for_model(obj).select_related(depth=1).filter(comment_type='internal').order_by('id')
+
         ## Handle our data, let the rest flow over
         comment_form = comments.get_internal_form()(obj, data)
         context = {
+            'comments': internal_comments,
             'comment_form': comment_form,
         }
 
