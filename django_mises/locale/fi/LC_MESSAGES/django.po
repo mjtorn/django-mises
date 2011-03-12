@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-03-12 22:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: blog/filters.py:24
+msgid "Any"
+msgstr "Kaikki"
+
+#: blog/filters.py:25
+msgid "Yes"
+msgstr "Kyllä"
+
+#: blog/filters.py:29
+msgid "No"
+msgstr "Ei"
+
+#: blog/filters.py:32
+msgid "Date set"
+msgstr "Päivämäärä asetettu"
+
+#: blog/filters.py:35
+msgid "Coming"
+msgstr "Tulossa"
+
+#: blog/filters.py:41
+msgid "Is published"
+msgstr "On julkaistu"
+
+#: blog/models.py:20
+msgid "Author"
+msgstr "Kirjoittaja"
+
+#: blog/models.py:21
+msgid "Co-Author"
+msgstr "Toinen kirjoittaja"
+
+#: blog/models.py:23
+msgid "Title"
+msgstr "Otsikko"
+
+#: blog/models.py:24
+msgid "Slug"
+msgstr "Tiiviste"
+
+#: blog/models.py:28
+msgid "Content"
+msgstr "Sisältö"
+
+#: blog/models.py:30
+msgid "Publish at"
+msgstr "Julkaisuajankohta"
+
+#: blog/models.py:33
+msgid "Updated at"
+msgstr "Päivitysajankohta"
+
+#: comments/forms.py:96 comments/forms.py:109
+msgid "Comment"
+msgstr "Kommentti"
+
+#: comments/models.py:21
+#, fuzzy
+msgid "User"
+msgstr "Käyttäjätunnus"
+
+#: comments/models.py:22
+msgid "Type"
+msgstr "Tyyppi"
+
+#: comments/models.py:24
+msgid "comment"
+msgstr "kommentti"
+
+#: comments/models.py:26
+msgid "date/time submitted"
+msgstr "Lähetysajankohta"
+
+#: comments/models.py:27
+msgid "IP address"
+msgstr "IP-osoite"
+
+#: comments/models.py:28
+#, fuzzy
+msgid "is public"
+msgstr "On julkaistu"
+
+#: comments/models.py:29
+msgid ""
+"Uncheck this box to make the comment effectively disappear from the site."
+msgstr "Poista täppä piilottaaksesi kommentin sivulta"
+
+#: comments/models.py:31
+msgid "is removed"
+msgstr "on poistettu"
+
+#: comments/models.py:32
+msgid ""
+"Check this box if the comment is inappropriate. A \"This comment has been "
+"removed\" message will be displayed instead."
+msgstr "Lisää täppä jos kommentti on epäsovelias."
+
+#: prelaunch/admin.py:24
+msgid "Found user for email"
+msgstr "Sähköpostiosoitteella löytyi jo käyttäjä"
+
+#: prelaunch/forms.py:21
+msgid "User is not admin"
+msgstr "Käyttäjä ei ole ylläpitäjä"
+
+#: prelaunch/forms.py:31
+msgid "Username"
+msgstr "Käyttäjätunnus"
+
+#: prelaunch/forms.py:32
+msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+"Vaadittu. Korkeintaan 30 merkkiä. Sallittuja ovat kirjaimet, numerot ja @/./"
+"+/-/_"
+
+#: prelaunch/forms.py:33
+msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+msgstr ""
+"Tämä kenttä voi sisältää vain kirjaimia, numeroita ja merkkejä @/./+/-/_"
+
+#: prelaunch/forms.py:41
+msgid "A user with that username already exists."
+msgstr "Käyttäjätunnus on jo viety"
+
+#: prelaunch/models.py:61
+msgid "Invitation to mises.fi"
+msgstr "Kutsu mises.fihin"
+
+#: users/templates/login.html:25
+msgid "Log in"
+msgstr "Kirjaudu sisään"

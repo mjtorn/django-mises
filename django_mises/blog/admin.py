@@ -15,6 +15,7 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'co_author', 'publish_at')
+    list_filter = ('publish_at',)
     fieldsets = (
         (None, {
             'fields': ('co_author', 'title', 'content', 'publish_at')
@@ -45,6 +46,38 @@ class PostAdmin(admin.ModelAdmin):
                     readonly = ('co_author', 'title', 'content', 'publish_at',)
                 return readonly
         return ()
+
+    def change_view(self, request, object_id, extra_context=None):
+        """Deal with custom editing
+        """
+
+        from django_mises import comments
+
+        data = request.POST.copy() or None
+
+        obj = models.Post.objects.get(id=object_id)
+
+        internal_comments = comments.get_model().objects.for_model(obj).select_related(depth=1).filter(comment_type='internal').order_by('id')
+
+        ## Handle our data, let the rest flow over
+        comment_form = comments.get_internal_form()(obj, data)
+        context = {
+            'comments': internal_comments,
+            'comment_form': comment_form,
+        }
+
+        if data is not None:
+            if data.has_key('internal_comment'):
+
+                if comment_form.is_bound:
+                    if comment_form.is_valid():
+                        ## Do not allow tampering
+                        comment_form.cleaned_data['user'] = request.user
+
+                        comment = comment_form.save()
+
+        ## Maybe redirect out, maybe complain
+        return super(PostAdmin, self).change_view(request, object_id, extra_context=context)
 
     def save_model(self, request, obj, form, change):
         from pytils.translit import slugify
