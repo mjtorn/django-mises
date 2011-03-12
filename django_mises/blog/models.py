@@ -26,7 +26,7 @@ class Post(models.Model):
     content = ckeditor_fields.RichTextField()
 
     publish_at = models.DateField(verbose_name=_('Publish at'), db_index=True, null=True, blank=True, default=None)
-    updated_at = models.DateTimeField(verbose_name=_('Updated_at at'), auto_now=True)
+    updated_at = models.DateTimeField(verbose_name=_('Updated at'), auto_now=True)
 
     class Meta:
         permissions = (
