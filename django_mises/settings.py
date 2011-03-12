@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     'django_mises.users',
     'django_mises.prelaunch',
     'django_mises.comments',
+    'reversion'
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
