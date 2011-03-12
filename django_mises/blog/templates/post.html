@@ -15,5 +15,28 @@
 <div id="DailyArticle">
 {{ post.content|safe }}
 </div>
+{% if comments %}
+<hr />
+{% for comment in comments %}
+    <div style="padding-left: 10px; padding-top: 10px; border: 1px solid #CCCCCC;">
+        <div style="padding-bottom: 5px;">
+            #{{ forloop.counter }} | {{ comment.submit_date|date }} {{ comment.submit_date|time }} | <a href="{% url user comment.user %}" target="_new">{{ comment.user.first_name }} {{ comment.user.last_name }}</a>
+        </div>
+        <div style="padding-bottom: 5px;">
+            {{ comment.comment|safe }}
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+{% if user.id %}
+<hr />
+    <div style="padding-left: 10px;"> {# This is still within a <form> tag #}
+        <form method="post" action="">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" name="submit">Kommentoi</button>
+        </form>
+    </div>
+{% endif %}
 {% endblock content %}
 
