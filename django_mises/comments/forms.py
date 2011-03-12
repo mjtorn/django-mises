@@ -12,6 +12,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from django_mises.comments import models
 
+import cgi
+
 import datetime
 
 class TypedCommentBaseForm(forms.Form):
@@ -61,6 +63,27 @@ class TypedCommentBaseForm(forms.Form):
 
         for key, value in self.get_comment_create_data().items():
             setattr(comment, key, value)
+
+        ## Never trust user input
+        split_comment = cgi.escape(comment.comment).splitlines()
+
+        ## Ghetto indent and clean
+        for i in xrange(len(split_comment)):
+            if split_comment[i].startswith(' '):
+                len_orig = len(split_comment[i])
+                stripped = split_comment[i].lstrip()
+                len_stripped = len(stripped)
+
+                split_comment[i] = '%s%s' % ((len_orig - len_stripped) * '&nbsp;', stripped)
+
+            split_comment[i] = split_comment[i].rstrip()
+
+        ## Ghetto format
+        new_comment = '<p>'
+        new_comment = '%s%s' % (new_comment, '</p><p>'.join(split_comment))
+        new_comment = '%s</p>' % new_comment
+
+        comment.comment = new_comment
 
         comment.save()
 
