@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-12 20:19+0200\n"
+"POT-Creation-Date: 2011-03-12 22:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,6 +69,51 @@ msgstr "Julkaisuajankohta"
 #: blog/models.py:33
 msgid "Updated at"
 msgstr "Päivitysajankohta"
+
+#: comments/forms.py:96 comments/forms.py:109
+msgid "Comment"
+msgstr "Kommentti"
+
+#: comments/models.py:21
+#, fuzzy
+msgid "User"
+msgstr "Käyttäjätunnus"
+
+#: comments/models.py:22
+msgid "Type"
+msgstr "Tyyppi"
+
+#: comments/models.py:24
+msgid "comment"
+msgstr "kommentti"
+
+#: comments/models.py:26
+msgid "date/time submitted"
+msgstr "Lähetysajankohta"
+
+#: comments/models.py:27
+msgid "IP address"
+msgstr "IP-osoite"
+
+#: comments/models.py:28
+#, fuzzy
+msgid "is public"
+msgstr "On julkaistu"
+
+#: comments/models.py:29
+msgid ""
+"Uncheck this box to make the comment effectively disappear from the site."
+msgstr "Poista täppä piilottaaksesi kommentin sivulta"
+
+#: comments/models.py:31
+msgid "is removed"
+msgstr "on poistettu"
+
+#: comments/models.py:32
+msgid ""
+"Check this box if the comment is inappropriate. A \"This comment has been "
+"removed\" message will be displayed instead."
+msgstr "Lisää täppä jos kommentti on epäsovelias."
 
 #: prelaunch/admin.py:24
 msgid "Found user for email"
