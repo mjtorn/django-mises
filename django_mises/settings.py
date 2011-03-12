@@ -102,6 +102,7 @@ INSTALLED_APPS = (
     'django_mises.blog',
     'django_mises.users',
     'django_mises.prelaunch',
+    'django_mises.comments',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
