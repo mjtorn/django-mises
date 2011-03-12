@@ -12,6 +12,8 @@ from django.db import models
 
 from ckeditor import fields as ckeditor_fields
 
+import filters
+
 # Create your models here.
 
 class Post(models.Model):
@@ -26,6 +28,8 @@ class Post(models.Model):
     content = ckeditor_fields.RichTextField(verbose_name=_('Content'))
 
     publish_at = models.DateField(verbose_name=_('Publish at'), db_index=True, null=True, blank=True, default=None)
+    publish_at.is_published_filter = True
+
     updated_at = models.DateTimeField(verbose_name=_('Updated at'), auto_now=True)
 
     class Meta:

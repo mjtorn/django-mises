@@ -15,6 +15,7 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'co_author', 'publish_at')
+    list_filter = ('publish_at',)
     fieldsets = (
         (None, {
             'fields': ('co_author', 'title', 'content', 'publish_at')
