@@ -6,6 +6,8 @@ from django.contrib import admin
 
 from django_mises.blog import models
 
+from reversion import admin as reversion_admin
+
 from ckeditor import widgets as ckeditor_widgets
 
 class PostAdminForm(forms.ModelForm):
@@ -13,7 +15,7 @@ class PostAdminForm(forms.ModelForm):
         model = models.Post
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(reversion_admin.VersionAdmin):
     list_display = ('title', 'author', 'co_author', 'publish_at')
     list_filter = ('publish_at',)
     fieldsets = (
