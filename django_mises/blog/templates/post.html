@@ -11,6 +11,9 @@
     {{ post.publish_at|date|capfirst }}
     kirjoittanut
     <a id="author" href="{% url user post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
+    {% if post.co_author %}
+    ja <a id="author" href="{% url user post.co_author.username %}">{{ post.co_author.first_name }} {{ post.co_author.last_name }}</a>
+    {% endif %}
 </p>
 <div id="DailyArticle">
 {{ post.content|safe }}
