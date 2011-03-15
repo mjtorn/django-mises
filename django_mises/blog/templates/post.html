@@ -31,7 +31,7 @@
     </div>
 {% endfor %}
 {% endif %}
-{% if user.id %}
+{% if user.email %}
 <hr />
     <div style="padding-left: 10px;"> {# This is still within a <form> tag #}
         <form method="post" action="">
@@ -39,6 +39,11 @@
         {{ comment_form.as_p }}
         <button type="submit" name="submit">Kommentoi</button>
         </form>
+    </div>
+{% else %}
+<hr />
+    <div style="padding-left: 10px;"> {# This is still within a <form> tag #}
+        Kommentointimahdollisuus toistaiseksi pois käytöstä uusilta tulokkailta. Ominaisuus tuodaan mahdollisimman pian kaikkien käyttöön. Pahoittelut!
     </div>
 {% endif %}
 {% endblock content %}
