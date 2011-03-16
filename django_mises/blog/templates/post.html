@@ -2,6 +2,8 @@
 {% load misesfilters %}
 
 {% block extra_head %}
+    <meta name="description" content="{{ post.preview }}" />
+
 <!-- OG -->
     <meta property="og:title" content="Mises-Instituutti {% if title %} · {{ title }}{% endif %}" />
     <meta property="og:type" content="website" />
