@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 {% load misesfilters %}
+
+{% block extra_head %}
+<!-- OG -->
+    <meta property="og:title" content="Mises-Instituutti {% if title %} · {{ title }}{% endif %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{% url post post.id post.slug %}" />
+    <meta property="og:description" content="{{ post.preview }}" />
+<!-- /OG -->
+{% endblock extra_head %}
+
 {% block content %}
 
 <div class="rel">
