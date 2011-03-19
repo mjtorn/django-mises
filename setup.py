@@ -6,7 +6,8 @@ import os
 import sys
 
 NAME = 'django_mises'
-AUTHOR_EMAIL = 'jukkamic@gmail.com'
+AUTHOR = 'Mises Finland'
+AUTHOR_EMAIL = 'staff@mises.fi'
 URL = 'http://mises.fi/'
 
 def get_version():
@@ -49,14 +50,14 @@ os.path.walk(NAME, get_packages, None)
 setup(
     name = NAME,
     version = get_version(),
-    author = 'Jukka Michelsson',
+    author = AUTHOR,
     author_email = AUTHOR_EMAIL,
     url = URL,
     packages = packages,
 #    package_data = package_data, # MANIFEST.in where available
     include_package_data = True,
     long_description = '%s.' % NAME,
-    install_requires = ('django==1.2.3', 'PIL', 'django-annoying==0.7.5', 'django-ckeditor==0.0.8', 'pyquery==0.6.1', 'lxml==2.3beta1'),
+    install_requires = ('django==1.2.3', 'PIL', 'django-annoying==0.7.5', 'django-ckeditor==0.0.8', 'pyquery==0.6.1', 'lxml==2.3beta1', 'pytils==0.2.3', 'django-reversion'),
 )
 
 # EOF
