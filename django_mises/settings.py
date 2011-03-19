@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'django_mises.prelaunch.middleware.RequireAdminMiddleware',
+#    'django_mises.prelaunch.middleware.RequireAdminMiddleware',
 )
 
 ROOT_URLCONF = 'django_mises.urls'

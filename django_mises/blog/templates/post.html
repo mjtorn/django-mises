@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% load misesfilters %}
+
+{% block extra_head %}
+    <meta name="description" content="{{ post.preview }}" />
+
+<!-- OG -->
+    <meta property="og:title" content="Mises-Instituutti{% if title %} · {{ title }}{% endif %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://mises.fi{% url post post.id post.slug %}" />
+    <meta property="og:description" content="{{ post.preview }}" />
+<!-- /OG -->
+{% endblock extra_head %}
+
 {% block content %}
 
 <div class="rel">
@@ -11,6 +23,9 @@
     {{ post.publish_at|date|capfirst }}
     kirjoittanut
     <a id="author" href="{% url user post.author.username %}">{{ post.author.first_name }} {{ post.author.last_name }}</a>
+    {% if post.co_author %}
+    ja <a id="author" href="{% url user post.co_author.username %}">{{ post.co_author.first_name }} {{ post.co_author.last_name }}</a>
+    {% endif %}
 </p>
 <div id="DailyArticle">
 {{ post.content|safe }}
@@ -28,7 +43,7 @@
     </div>
 {% endfor %}
 {% endif %}
-{% if user.id %}
+{% if user.email %}
 <hr />
     <div style="padding-left: 10px;"> {# This is still within a <form> tag #}
         <form method="post" action="">
@@ -36,6 +51,11 @@
         {{ comment_form.as_p }}
         <button type="submit" name="submit">Kommentoi</button>
         </form>
+    </div>
+{% else %}
+<hr />
+    <div style="padding-left: 10px;"> {# This is still within a <form> tag #}
+        Kommentointimahdollisuus toistaiseksi pois käytöstä uusilta tulokkailta. Ominaisuus tuodaan mahdollisimman pian kaikkien käyttöön. Pahoittelut!
     </div>
 {% endif %}
 {% endblock content %}

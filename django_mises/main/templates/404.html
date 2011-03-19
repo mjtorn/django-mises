@@ -60,8 +60,12 @@
 
         <div class="container main">
             <div id="content">
-                {% block content %}
-                {% endblock content %}
+                Hakemaanne sivua ei löydy.
+                <p>
+                    <em>Sivulla on pieni bugi blogien selaamisessa, olet saattanut törmätä siihen. Korjataan mahdollisimman pian! Kiitos kärsivällisyydestä!</em>
+                    <br />
+                    Sillä välin suosittelemme selaamaan <a href="{% url index %}">etusivun</a> kautta.
+                </p>
             </div>
         </div>
 
@@ -75,4 +79,5 @@
         </div>
     </body>
 </html>
+
 
