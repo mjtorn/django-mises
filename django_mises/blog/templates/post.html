@@ -12,17 +12,19 @@
 <!-- /OG -->
 {% endblock extra_head %}
 
+{% block sidebar %}
+
+<div id="sidebar">
+    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+    <fb:activity site="mises.fi" width="300" height="300" header="true" font="" border_color="" recommendations="false"></fb:activity>
+</div>
+
+{% endblock sidebar %}
+
 {% block content %}
 
 <div class="rel">
     {% blog_nav %}
-</div>
-
-<div id="sidebar">
-<script
-src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:activity
-site="mises.fi" width="300" height="300" header="true" font="" border_color=""
-recommendations="false"></fb:activity>
 </div>
 
 <h1>{{ post.title }}</h1>
