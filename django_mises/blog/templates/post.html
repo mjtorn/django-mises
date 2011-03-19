@@ -18,6 +18,13 @@
     {% blog_nav %}
 </div>
 
+<div id="sidebar">
+<script
+src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:activity
+site="mises.fi" width="300" height="300" header="true" font="" border_color=""
+recommendations="false"></fb:activity>
+</div>
+
 <h1>{{ post.title }}</h1>
 <p class="meta">
     {{ post.publish_at|date|capfirst }}
@@ -30,6 +37,9 @@
 <div id="DailyArticle">
 {{ post.content|safe }}
 </div>
+<script
+src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like
+href="mises.fi/post/27/oskari-juurikkala-pankit-ja-rahan-valta" show_faces="false" width="450" font=""></fb:like>
 {% if comments %}
 <hr />
 {% for comment in comments %}
