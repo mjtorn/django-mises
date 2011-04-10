@@ -1,6 +1,8 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
 from django.core.urlresolvers import resolve, reverse
+from django.core.urlresolvers import NoReverseMatch
+
 
 from django_mises.blog import models as blog_models
 
@@ -65,12 +67,20 @@ def nav(context, viewname, descr):
     """Figure out the menu items
     """
 
-    view, args, kwargs = resolve(context['request'].META['PATH_INFO'])
+    ## Tuple of func, args, kwargs
+    ## Somewhat better in Django 1.3
 
-    rev_view_name = reverse(viewname)
+    match = resolve(context['request'].META['PATH_INFO'])
 
-    ## This should be considerably better in the next Django.
-    if view.func_name == resolve(rev_view_name)[0].func_name:
+    # It tries to match combos like index with {'url': '/info/'} that always fail
+    try:
+        rev_view_name = reverse(viewname, args=match[1], kwargs=match[2])
+    except NoReverseMatch:
+        rev_view_name = reverse(viewname, args=match[1])
+
+    potential_match = resolve(rev_view_name)
+
+    if match[0] == potential_match[0] and match[1] == potential_match[1] and match[2] == potential_match[2]:
         active = True
     else:
         active = False
