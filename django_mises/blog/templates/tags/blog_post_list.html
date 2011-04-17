@@ -1,3 +1,6 @@
+{% load pagination_tags %}
+{% autopaginate posts 5 %}
+{% paginate %}
                 {% for post in posts %}
                     {% url post post.id post.slug as post_url %}
                     <div class="box blogteaser">
@@ -31,4 +34,5 @@
                         </div>
                     </div>
                 {% endfor %}
+{% paginate %}
 

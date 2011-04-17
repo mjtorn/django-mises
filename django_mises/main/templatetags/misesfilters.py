@@ -31,18 +31,18 @@ def random_slogan():
 
     return main_models.Slogan.objects.all().order_by('?').values('slogan')[0]['slogan']
 
-@register.inclusion_tag('tags/blog_preview.html')
-def blog_preview():
+@register.inclusion_tag('tags/blog_post_list.html', takes_context=True)
+def blog_post_list(context):
     """Return a list of latest published blogs
     """
 
     now = datetime.datetime.now()
 
-    posts = blog_models.Post.objects.filter(publish_at__lte=now).select_related().order_by('-publish_at')[:10]
+    posts = blog_models.Post.objects.filter(publish_at__lte=now).select_related().order_by('-publish_at')
 
-    return {
-        'posts': posts,
-    }
+    context['posts'] = posts
+
+    return context
 
 @register.inclusion_tag('tags/blog_nav.html', takes_context=True)
 def blog_nav(context):

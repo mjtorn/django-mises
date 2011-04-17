@@ -77,6 +77,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 #    'django_mises.prelaunch.middleware.RequireAdminMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'django_mises.urls'
@@ -103,7 +104,8 @@ INSTALLED_APPS = (
     'django_mises.users',
     'django_mises.prelaunch',
     'django_mises.comments',
-    'reversion'
+    'reversion',
+    'pagination',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
