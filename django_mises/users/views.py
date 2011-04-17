@@ -18,6 +18,8 @@ from django.template import RequestContext
 
 from django_mises.blog import models as blog_models
 
+from django_mises.users import forms as users_forms
+
 def user_view(request, username):
     """View the user
     """
@@ -30,10 +32,26 @@ def user_view(request, username):
 
     post_count = blog_models.Post.objects.filter(author=user, publish_at__lte=now).count()
 
+    # Needs verification?
+    email_verification_form = None
+    if request.user.id == user.id and not user.get_profile().is_verified:
+        data = request.POST.copy() or None
+
+        email_verification_form = users_forms.EmailVerificationForm(data=data)
+        if email_verification_form.is_bound:
+            email_verification_form.data['user'] = request.user
+            if email_verification_form.is_valid():
+                email_verification_form.save()
+
+                messages.info(request, 'Tunnukessi on aktivoitu!')
+
+                return HttpResponseRedirect(reverse('user', args=(request.user.username,)))
+
     # Avoid template namespace clash
     context = {
         'viewed_user': user,
         'post_count': post_count,
+        'email_verification_form': email_verification_form,
     }
     req_ctx = RequestContext(request, context)
 
