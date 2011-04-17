@@ -1,10 +1,14 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
+from django.contrib.auth.decorators import login_required
+
 from django.contrib.auth import models as auth_models
 from django.contrib.auth import forms as auth_forms
 from django.contrib.auth import authenticate, login
 
 from django.core.urlresolvers import reverse
+
+from django.contrib import messages
 
 from django.http import HttpResponseRedirect
 
@@ -57,6 +61,21 @@ def register(request):
     req_ctx = RequestContext(request, context)
 
     return render_to_response('register.html', req_ctx)
+
+@login_required
+def get_verification_code(request):
+    """Maybe ajaxify this in the future
+    """
+
+    if request.user.get_profile().is_verified:
+        messages.info(request, 'Olet jo vahvistanut osoitteesi')
+    else:
+        request.user.get_profile().gen_verification_code()
+        print request.user.get_profile().verification_code
+        ## TODO: actually send email
+        messages.info(request, 'Vahvistuskoodi on lähetetty sähköpostiisi')
+
+    return HttpResponseRedirect(reverse('user', args=(request.user.username,)))
 
 # EOF
 
