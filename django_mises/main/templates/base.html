@@ -63,6 +63,15 @@
         </div>
 
         <div class="container main">
+            {% if messages %}
+            <div style="padding-bottom: 10px;">
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
             <div id="content">
                 {% block content %}
                 {% endblock content %}
