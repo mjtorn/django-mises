@@ -6,7 +6,7 @@ import os
 import sys
 
 NAME = 'django_mises'
-AUTHOR_EMAIL = 'jukkamic@gmail.com'
+AUTHOR_EMAIL = 'staff@mises.fi'
 URL = 'http://mises.fi/'
 
 def get_version():
@@ -49,7 +49,7 @@ os.path.walk(NAME, get_packages, None)
 setup(
     name = NAME,
     version = get_version(),
-    author = 'Jukka Michelsson',
+    author = 'Markus Törnqvist, Jukka Michelsson',
     author_email = AUTHOR_EMAIL,
     url = URL,
     packages = packages,
