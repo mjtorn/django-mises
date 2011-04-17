@@ -43,7 +43,7 @@ def user_view(request, username):
             if email_verification_form.is_valid():
                 email_verification_form.save()
 
-                messages.info(request, 'Tunnukessi on aktivoitu!')
+                messages.info(request, 'Tunnuksesi on aktivoitu!')
 
                 return HttpResponseRedirect(reverse('user', args=(request.user.username,)))
 
