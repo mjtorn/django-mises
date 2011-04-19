@@ -12,6 +12,8 @@ from blog import models as blog_models
 
 import datetime
 
+import time
+
 class ArticlesFeed(Feed):
     """Mises articles
     """
@@ -39,7 +41,6 @@ class ArticlesFeed(Feed):
         return reverse('user', args=(obj.author.username,))
 
     def item_pubdate(self, obj):
-        import time
         return datetime.datetime.fromtimestamp(time.mktime(obj.publish_at.timetuple()))
 
     def item_title(self, obj):
