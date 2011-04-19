@@ -19,6 +19,10 @@
 {% block sidebar %}
 
 <div id="sidebar">
+<iframe allowTransparency='true' frameborder='0' scrolling='no'
+src='http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FV%25C3%25A4liaikainen-testi%2F219005271447605%3Fsk%3Dwall&amp;width=292&amp;colorscheme=light&amp;show_faces=true&amp;stream=true&amp;header=true&amp;height=427'
+style='border:none; overflow:hidden; width:292px; height:427px;'/>
+
     <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
     <fb:activity site="mises.fi" width="300" height="300" header="true" font="" border_color="" recommendations="false"></fb:activity>
 </div>
@@ -43,9 +47,12 @@
 <div id="DailyArticle">
 {{ post.content|safe }}
 </div>
-<script
-src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like
-href="" show_faces="false" width="450" font=""></fb:like>
+
+<a name="fb_share" type="button_count"
+href="http://www.facebook.com/sharer.php">Share</a><script
+src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"
+type="text/javascript"></script>
+
 {% if comments %}
 <hr />
 {% for comment in comments %}
