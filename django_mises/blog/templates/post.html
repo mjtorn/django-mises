@@ -17,8 +17,15 @@
 {% endblock extra_head %}
 
 {% block sidebar %}
-
 <div id="sidebar">
+
+<script
+src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+<fb:like-box
+href="http://www.facebook.com/pages/Mises-instituutin-stream/155517304512872"
+width="300" show_faces="false" stream="true" header="false"></fb:like-box>
+
+
     <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
     <fb:activity site="mises.fi" width="300" height="300" header="true" font="" border_color="" recommendations="false"></fb:activity>
 </div>
@@ -45,6 +52,11 @@
 </div>
 <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
 <fb:like href="" show_faces="false" width="450" font=""></fb:like>
+
+<br />
+<a name="fb_share" type="button_count" href="http://www.facebook.com/sharer.php">Share</a>
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+
 {% if comments %}
 <hr />
 {% for comment in comments %}
