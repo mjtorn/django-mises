@@ -17,13 +17,15 @@ def send_user_email(user, template_name):
     """Email the verification code
     """
 
+    site = sites_models.Site.objects.get_current()
+
     ctx = {
-        'site': sites_models.Site.objects.get_current(),
+        'site': site,
         'user': user,
     }
 
     to = (user.email,)
-    subject = _('Verification code for Mises')
+    subject = _('Verification code for %s' % site.name)
 
     body = render(ctx, template_name)
 
