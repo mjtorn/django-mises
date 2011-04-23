@@ -13,7 +13,7 @@ def render(context, template_name):
 
     return tmpl.render(template.Context(context))
 
-def send_user_email(user, template_name):
+def send_user_email(user, template_name, **extractx):
     """Email the verification code
     """
 
@@ -29,6 +29,8 @@ def send_user_email(user, template_name):
         'user_last_name': user.last_name,
         'user_username': user.username,
     }
+
+    ctx.update(extractx)
 
     to = (user.email,)
     subject = _('Verification code for %s') % site.name
