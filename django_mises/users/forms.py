@@ -6,7 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from django import forms
 
-@decorators.autostrip
+## Production is python2.5
+#@decorators.autostrip
 class EmailVerificationForm(forms.Form):
     verification_code = forms.CharField(label=_('Verification code'), max_length=40)
 
@@ -19,7 +20,8 @@ class EmailVerificationForm(forms.Form):
     def save(self):
         self.data['user'].get_profile().is_verified = True
         self.data['user'].get_profile().save()
-        print 'ok'
+
+EmailVerificationForm = decorators.autostrip(EmailVerificationForm)
 
 # EOF
 
