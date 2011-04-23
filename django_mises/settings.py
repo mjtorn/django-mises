@@ -106,6 +106,7 @@ INSTALLED_APPS = (
     'django_mises.comments',
     'reversion',
     'pagination',
+    'mailer',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
