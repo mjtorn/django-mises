@@ -31,7 +31,7 @@ def send_user_email(user, template_name):
     }
 
     to = (user.email,)
-    subject = _('Verification code for %s' % site.name)
+    subject = _('Verification code for %s') % site.name
 
     body = render(ctx, template_name)
 
