@@ -2,7 +2,9 @@
 
 from django import template
 
-from django.core import mail
+from mailer import send_mail
+
+from django.conf import settings
 
 from django.contrib.sites import models as sites_models
 
@@ -35,9 +37,7 @@ def send_user_email(user, template_name):
 
     body = render(ctx, template_name)
 
-    message = mail.message.EmailMessage(to=to, subject=subject, body=body)
-
-    message.send()
+    send_mail(subject, body, settings.DEFAULT_FROM_ADDRESS, to)
 
 # EOF
 
