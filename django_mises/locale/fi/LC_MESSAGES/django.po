@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-17 23:28+0300\n"
+"POT-Creation-Date: 2011-04-23 18:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: email_helpers.py:26
+#, fuzzy
+msgid "Verification code for Mises"
+msgstr "Vahvistuskoodi"
 
 #: blog/filters.py:24
 msgid "Any"
@@ -154,7 +159,31 @@ msgstr "Vahvistuskoodi"
 msgid "Invalid verification code"
 msgstr "Virheellinen vahvistuskoodi"
 
-#: users/templates/login.html:25
+#: users/templates/email/send_verification_code.txt:1
+#, python-format
+msgid ""
+"Hi!\n"
+"\n"
+"Welcome to %(site.name)s! Here is your verification code for\n"
+"http://%(site.domain)s/user/%(user.username)s\n"
+"\n"
+"If you didn't register with %(site.name)s please\n"
+"ignore this message.\n"
+"\n"
+"-- \n"
+"mises staff\n"
+msgstr ""
+"Hei\n"
+"\n"
+"Tervetuloa sivustolle %(site.name)s! Tässä on vahvistuskoodisi sivulle\n"
+"http://%(site.domain)s/user/%(user.username)s\n"
+"\n"
+"Jos et rekisteröitynyt sivustolle %(site.name)s ystävällisesti\n"
+"jätä tämä viesti huomioimatta.\n"
+"\n"
+"-- \n"
+"mises staff\n"
+
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
