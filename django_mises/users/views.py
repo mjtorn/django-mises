@@ -20,6 +20,8 @@ from django_mises.blog import models as blog_models
 
 from django_mises.users import forms as users_forms
 
+from django_mises import email_helpers
+
 def user_view(request, username):
     """View the user
     """
@@ -89,8 +91,8 @@ def get_verification_code(request):
         messages.info(request, 'Olet jo vahvistanut osoitteesi')
     else:
         request.user.get_profile().gen_verification_code()
-        print request.user.get_profile().verification_code
-        ## TODO: actually send email
+        email_helpers.send_user_email(request.user, 'email/send_verification_code.txt')
+
         messages.info(request, 'Vahvistuskoodi on lähetetty sähköpostiisi')
 
     return HttpResponseRedirect(reverse('user', args=(request.user.username,)))
