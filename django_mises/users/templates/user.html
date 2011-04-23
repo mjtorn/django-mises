@@ -14,6 +14,19 @@
     </tr>
     {% endif %}
 </table>
+
+{% if user.id == viewed_user.id %}
+{% if email_verification_form %}
+<p>
+    Klikkaa <a href="{% url get_verification_code %}">tästä</a> tilaaksesi vahvistuskoodin sähköpostiin, jotta voit kommentoida kirjoituksia
+    <form method="post" action="">
+    {% csrf_token %}
+    {{ email_verification_form.as_p }}
+    <button type="submit" name="submit">Vahvista koodi</button>
+    </form>
+</p>
+{% endif %}
+{% endif %}
 {% endblock content %}
 
 

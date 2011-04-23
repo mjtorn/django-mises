@@ -72,9 +72,9 @@ width="300" show_faces="false" stream="true" header="false"></fb:like-box>
     </div>
 {% endfor %}
 {% endif %}
-{% comment %}{% if user.email %}
 <hr />
-    <div style="padding-left: 10px;"> {# This is still within a <form> tag #}
+{% if user.email and user.get_profile.is_verified %}
+    <div style="padding-left: 10px;">
         <form method="post" action="">
         {% csrf_token %}
         {{ comment_form.as_p }}
@@ -82,10 +82,13 @@ width="300" show_faces="false" stream="true" header="false"></fb:like-box>
         </form>
     </div>
 {% else %}
-<hr />
-    <div style="padding-left: 10px;"> {# This is still within a <form> tag #}
-        Kommentointimahdollisuus toistaiseksi pois käytöstä uusilta tulokkailta. Ominaisuus tuodaan mahdollisimman pian kaikkien käyttöön. Pahoittelut!
+    <div style="padding-left: 10px;">
+        {% if user.email %}
+        Klikkaa <a href="{% url get_verification_code %}">tästä</a> tilaaksesi vahvistuskoodin sähköpostiin, jotta voit kommentoida kirjoitusta
+        {% else %}
+        Voit kommentoida tätä kirjoitusta kirjautumalla sisään
+        {% endif %}
     </div>
-{% endif %}{% endcomment %}
+{% endif %}
 {% endblock content %}
 

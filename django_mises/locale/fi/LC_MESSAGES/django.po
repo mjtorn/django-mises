@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-19 23:28+0300\n"
+"POT-Creation-Date: 2011-04-23 19:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +24,11 @@ msgstr "Mises-instituutin artikkelit"
 #: blog/feeds.py:22
 msgid "New articles on Mises"
 msgstr "Uudet Mises-instituutin artikkelit"
+
+#: email_helpers.py:34
+#, python-format
+msgid "Verification code for %s"
+msgstr "Vahvistuskoodi sivustolle %s"
 
 #: blog/filters.py:24
 msgid "Any"
@@ -83,7 +87,6 @@ msgid "Comment"
 msgstr "Kommentti"
 
 #: comments/models.py:21
-#, fuzzy
 msgid "User"
 msgstr "Käyttäjätunnus"
 
@@ -104,7 +107,6 @@ msgid "IP address"
 msgstr "IP-osoite"
 
 #: comments/models.py:28
-#, fuzzy
 msgid "is public"
 msgstr "On julkaistu"
 
@@ -154,7 +156,39 @@ msgstr "Käyttäjätunnus on jo viety"
 msgid "Invitation to mises.fi"
 msgstr "Kutsu mises.fihin"
 
-#: users/templates/login.html:25
+#: users/forms.py:11
+msgid "Verification code"
+msgstr "Vahvistuskoodi"
+
+#: users/forms.py:15
+msgid "Invalid verification code"
+msgstr "Virheellinen vahvistuskoodi"
+
+#: users/templates/email/send_verification_code.txt:1
+#, python-format
+msgid ""
+"Hi!\n"
+"\n"
+"Welcome to %(site_name)s! Here is your verification code for\n"
+"http://%(site_domain)s/user/%(user_username)s\n"
+"\n"
+"If you didn't register with %(site_name)s please\n"
+"ignore this message.\n"
+"\n"
+"-- \n"
+"mises staff\n"
+msgstr ""
+"Hei\n"
+"\n"
+"Tervetuloa sivustolle %(site_name)s! Tässä on vahvistuskoodisi sivulle\n"
+"http://%(site_domain)s/user/%(user_username)s\n"
+"\n"
+"Jos et rekisteröitynyt sivustolle %(site_name)s ystävällisesti\n"
+"jätä tämä viesti huomioimatta.\n"
+"\n"
+"-- \n"
+"mises staff\n"
+
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 

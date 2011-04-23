@@ -1,0 +1,13 @@
+{% load i18n %}{% blocktrans %}Hi!
+
+Welcome to {{ site_name}}! Here is your verification code for
+http://{{ site_domain }}/user/{{ user_username }}
+
+{{ code }}
+
+If you didn't register with {{ site_name }} please
+ignore this message.
+
+-- 
+mises staff
+{% endblocktrans %}

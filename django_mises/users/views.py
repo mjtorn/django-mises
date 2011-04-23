@@ -1,10 +1,14 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
+from django.contrib.auth.decorators import login_required
+
 from django.contrib.auth import models as auth_models
 from django.contrib.auth import forms as auth_forms
 from django.contrib.auth import authenticate, login
 
 from django.core.urlresolvers import reverse
+
+from django.contrib import messages
 
 from django.http import HttpResponseRedirect
 
@@ -13,6 +17,10 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 
 from django_mises.blog import models as blog_models
+
+from django_mises.users import forms as users_forms
+
+from django_mises import email_helpers
 
 def user_view(request, username):
     """View the user
@@ -26,10 +34,26 @@ def user_view(request, username):
 
     post_count = blog_models.Post.objects.filter(author=user, publish_at__lte=now).count()
 
+    # Needs verification?
+    email_verification_form = None
+    if request.user.id == user.id and not user.get_profile().is_verified:
+        data = request.POST.copy() or None
+
+        email_verification_form = users_forms.EmailVerificationForm(data=data)
+        if email_verification_form.is_bound:
+            email_verification_form.data['user'] = request.user
+            if email_verification_form.is_valid():
+                email_verification_form.save()
+
+                messages.info(request, 'Tunnuksesi on aktivoitu!')
+
+                return HttpResponseRedirect(reverse('user', args=(request.user.username,)))
+
     # Avoid template namespace clash
     context = {
         'viewed_user': user,
         'post_count': post_count,
+        'email_verification_form': email_verification_form,
     }
     req_ctx = RequestContext(request, context)
 
@@ -57,6 +81,21 @@ def register(request):
     req_ctx = RequestContext(request, context)
 
     return render_to_response('register.html', req_ctx)
+
+@login_required
+def get_verification_code(request):
+    """Maybe ajaxify this in the future
+    """
+
+    if request.user.get_profile().is_verified:
+        messages.info(request, 'Olet jo vahvistanut osoitteesi')
+    else:
+        verification_code = request.user.get_profile().gen_verification_code()
+        email_helpers.send_user_email(request.user, 'email/send_verification_code.txt', code=verification_code)
+
+        messages.info(request, 'Vahvistuskoodi on lähetetty sähköpostiisi')
+
+    return HttpResponseRedirect(reverse('user', args=(request.user.username,)))
 
 # EOF
 

@@ -13,6 +13,9 @@ urlpatterns = patterns('',
     url(r'^user/(?P<username>[\w.@+-]+)$', views.user_view, name='user'),
     url(r'^register/?$', views.register, name='register'),
 
+    ## This could be ajax but meh
+    url(r'^get_verification_code$', views.get_verification_code, name='get_verification_code'),
+
     ## Plagiate this stuff from django
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^login/?$', auth_views.login, {'template_name': 'login.html'}, name='login'),

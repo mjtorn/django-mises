@@ -106,6 +106,7 @@ INSTALLED_APPS = (
     'django_mises.comments',
     'reversion',
     'pagination',
+    'mailer',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -120,6 +121,8 @@ CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
 LOGIN_REDIRECT_URL = '/'
 
 APPEND_SLASH = False
+
+AUTH_PROFILE_MODULE = 'users.UserProfile'
 
 try:
     from custom_settings import *
