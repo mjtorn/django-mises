@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-23 18:38+0300\n"
+"POT-Creation-Date: 2011-04-23 18:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: email_helpers.py:26
-#, fuzzy
-msgid "Verification code for Mises"
-msgstr "Vahvistuskoodi"
+#: email_helpers.py:28
+#, fuzzy, python-format
+msgid "Verification code for %s"
+msgstr "Vahvistuskoodi sivustolle %s"
 
 #: blog/filters.py:24
 msgid "Any"
