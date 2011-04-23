@@ -17,11 +17,17 @@ def send_user_email(user, template_name):
     """Email the verification code
     """
 
+    ## Localization breaks
+    ## http://code.djangoproject.com/ticket/6368
     site = sites_models.Site.objects.get_current()
 
     ctx = {
-        'site': site,
+        'site_domain': site.domain,
+        'site_name': site.name,
         'user': user,
+        'user_first_name': user.first_name,
+        'user_last_name': user.last_name,
+        'user_username': user.username,
     }
 
     to = (user.email,)
