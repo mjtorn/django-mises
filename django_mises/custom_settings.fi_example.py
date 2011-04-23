@@ -5,6 +5,8 @@ import settings
 DEBUG = True
 TEMPLATE_DEBUG = True
 
+DEFAULT_FROM_ADDRESS = 'staff@mises.fi'
+
 settings.DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 settings.DATABASES['default']['NAME'] = '/home/mjt/src/git_checkouts/django-mises/mises.db'
 
