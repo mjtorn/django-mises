@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: email_helpers.py:34
-#, fuzzy, python-format
+#, python-format
 msgid "Verification code for %s"
 msgstr "Vahvistuskoodi sivustolle %s"
 
@@ -160,7 +160,7 @@ msgid "Invalid verification code"
 msgstr "Virheellinen vahvistuskoodi"
 
 #: users/templates/email/send_verification_code.txt:1
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Hi!\n"
 "\n"
