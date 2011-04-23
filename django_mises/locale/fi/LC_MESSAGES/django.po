@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -80,7 +79,6 @@ msgid "Comment"
 msgstr "Kommentti"
 
 #: comments/models.py:21
-#, fuzzy
 msgid "User"
 msgstr "Käyttäjätunnus"
 
@@ -101,7 +99,6 @@ msgid "IP address"
 msgstr "IP-osoite"
 
 #: comments/models.py:28
-#, fuzzy
 msgid "is public"
 msgstr "On julkaistu"
 
