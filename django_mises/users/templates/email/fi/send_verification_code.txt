@@ -1,13 +1,13 @@
-{% load i18n %}{% blocktrans %}Hi!
+Hei!!
 
-Welcome to {{ site_name}}! Here is your verification code for
+Tervetuloa sivustolle {{ site_name}}! Tässä on vahvistuskoodisi sivulle
 http://{{ site_domain }}/user/{{ user_username }}
 
 {{ code }}
 
-If you didn't register with {{ site_name }} please
-ignore this message.
+Jos et rekisteröitynyt sivustolle {{ site_name }} ystävällisesti
+jätä tämä viesti huomioimatta.
 
 -- 
 mises staff
-{% endblocktrans %}
+
