@@ -86,7 +86,7 @@ width="300" show_faces="false" stream="true" header="false"></fb:like-box>
         {% if user.email %}
         Klikkaa <a href="{% url get_verification_code %}">tästä</a> tilaaksesi vahvistuskoodin sähköpostiin, jotta voit kommentoida kirjoitusta
         {% else %}
-        Voit kommentoida tätä kirjoitusta kirjautumalla sisään
+        Voit kommentoida tätä kirjoitusta <a href="{% url login %}">kirjautumalla sisään</a>
         {% endif %}
     </div>
 {% endif %}
