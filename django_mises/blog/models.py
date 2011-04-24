@@ -12,6 +12,8 @@ from django.db import models
 
 from ckeditor import fields as ckeditor_fields
 
+from django_mises import email_helpers
+
 import filters
 
 # Create your models here.
@@ -91,7 +93,17 @@ class Post(models.Model):
 
             first = False
 
-        return super(Post, self).save(*args, **kwargs)
+        ## Send only on new posts
+        notify = not self.id
+
+        super(Post, self).save(*args, **kwargs)
+
+        if notify:
+            subject = _('New post')
+            ctx = {
+                'post': self,
+            }
+            email_helpers.send_publishers_authors_email(subject, 'send_notification_new_post.txt', ctx)
 
     def __unicode__(self):
         return u'%s: %s: %s' % (self.id, self.title, self.get_preview_start().replace('\r\n', ' ').strip())
