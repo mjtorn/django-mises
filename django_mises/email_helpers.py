@@ -54,6 +54,20 @@ def send_user_email(user, subject, template_name, context=None):
 
     send(subject, to, template_name, context)
 
+def send_publishers_authors_email(subject, template_name, context=None):
+    """Send email to publishers and authors
+    No "to" argument required because of this
+    """
+
+    if context is None:
+        context = {}
+
+    qry = Q(groups__name='Publishers') | Q(groups__name='Editors')
+
+    emails = auth_models.User.objects.filter(qry, is_active=True).distinct().values('email')
+    to = [e['email'] for e in emails]
+
+    send(subject, to, template_name, context)
 
 # EOF
 
