@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-23 19:00+0300\n"
+"POT-Creation-Date: 2011-04-24 22:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,6 @@ msgstr "Mises-instituutin artikkelit"
 #: blog/feeds.py:22
 msgid "New articles on Mises"
 msgstr "Uudet Mises-instituutin artikkelit"
-
-#: email_helpers.py:34
-#, python-format
-msgid "Verification code for %s"
-msgstr "Vahvistuskoodi sivustolle %s"
 
 #: blog/filters.py:24
 msgid "Any"
@@ -156,14 +151,15 @@ msgstr "Käyttäjätunnus on jo viety"
 msgid "Invitation to mises.fi"
 msgstr "Kutsu mises.fihin"
 
-#: users/forms.py:11
+#: users/forms.py:12 users/views.py:99
 msgid "Verification code"
 msgstr "Vahvistuskoodi"
 
-#: users/forms.py:15
+#: users/forms.py:16
 msgid "Invalid verification code"
 msgstr "Virheellinen vahvistuskoodi"
 
+#: users/templates/login.html:25
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
