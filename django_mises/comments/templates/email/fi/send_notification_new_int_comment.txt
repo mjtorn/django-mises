@@ -1,6 +1,6 @@
 Hei!
 
-{{ comment.user.first_name }} {{ comment.user.last_name }} kommentoi kirjoitusta {{ post.heading }}
+{{ comment.user.first_name }} {{ comment.user.last_name }} kommentoi kirjoitusta {{ post.title }}
 
 ===
 {{ comment.comment }}
