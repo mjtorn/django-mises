@@ -6,7 +6,11 @@ from mailer import send_mail
 
 from django.conf import settings
 
+from django.contrib.auth import models as auth_models
+
 from django.contrib.sites import models as sites_models
+
+from django.db.models import Q
 
 from django.utils.translation import ugettext_lazy as _
 
@@ -15,8 +19,8 @@ def render(context, template_name):
 
     return tmpl.render(template.Context(context))
 
-def send_user_email(user, template_name, **extractx):
-    """Email the verification code
+def send(subject, to, template_name, extractx):
+    """Generic mailer
     """
 
     site = sites_models.Site.objects.get_current()
@@ -28,17 +32,28 @@ def send_user_email(user, template_name, **extractx):
 
     ctx = {
         'site': site,
-        'user': user,
     }
 
     ctx.update(extractx)
 
-    to = (user.email,)
-    subject = _('Verification code for %s') % site.name
-
+    subject = '[%s] %s' % (site.domain, subject)
     body = render(ctx, template_name)
 
     send_mail(subject, body, settings.DEFAULT_FROM_ADDRESS, to)
+
+def send_user_email(user, subject, template_name, context=None):
+    """Email the verification code
+    """
+
+    if context is None:
+        context = {}
+
+    context['user'] = user
+
+    to = (user.email,)
+
+    send(subject, to, template_name, context)
+
 
 # EOF
 
