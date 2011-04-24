@@ -19,17 +19,16 @@ def send_user_email(user, template_name, **extractx):
     """Email the verification code
     """
 
-    ## Localization breaks
-    ## http://code.djangoproject.com/ticket/6368
     site = sites_models.Site.objects.get_current()
 
+    ## Email in our production is sent in English
+    ## not worth debugging, easier to have language-specific templates
+    # email is implied and language is explicit
+    template_name = 'email/%s/%s' % (settings.LANGUAGE_CODE, template_name)
+
     ctx = {
-        'site_domain': site.domain,
-        'site_name': site.name,
+        'site': site,
         'user': user,
-        'user_first_name': user.first_name,
-        'user_last_name': user.last_name,
-        'user_username': user.username,
     }
 
     ctx.update(extractx)
