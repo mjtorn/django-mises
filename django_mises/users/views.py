@@ -91,7 +91,7 @@ def get_verification_code(request):
         messages.info(request, 'Olet jo vahvistanut osoitteesi')
     else:
         verification_code = request.user.get_profile().gen_verification_code()
-        email_helpers.send_user_email(request.user, 'email/send_verification_code.txt', code=verification_code)
+        email_helpers.send_user_email(request.user, 'send_verification_code.txt', code=verification_code)
 
         messages.info(request, 'Vahvistuskoodi on lähetetty sähköpostiisi')
 
