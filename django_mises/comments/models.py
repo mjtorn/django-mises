@@ -12,6 +12,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from django.db import models
 
+from django_mises import email_helpers
+
 COMMENT_MAX_LENGTH = getattr(settings,'COMMENT_MAX_LENGTH', 3000)
 
 class TypedComment(comments_models.BaseCommentAbstractModel):
@@ -34,6 +36,38 @@ class TypedComment(comments_models.BaseCommentAbstractModel):
                                 'be displayed instead.'))
 
     objects = CommentManager()
+
+    def save(self, *args, **kwargs):
+        notify = not self.id
+
+        super(TypedComment, self).save(*args, **kwargs)
+
+        if notify:
+            post = self.content_object
+            ctx = {
+                'comment': self,
+                'post': post,
+            }
+
+            # Internal comments go to publishers and editors
+            if self.comment_type == 'internal':
+                subject = _('New internal comment')
+                email_helpers.send_publishers_authors_email(subject, 'send_notification_new_int_comment.txt', ctx)
+            else:
+                subject = _('New comment')
+
+                ## Improbable generic foreign key filters would work
+                users = set([post.author])
+
+                if post.co_author:
+                    users.add(post.co_author)
+
+                commentators = auth_models.User.objects.filter(id__in=set([p.user.id for p in post.comments.all()]))
+                for commentator in commentators:
+                    users.add(commentator)
+
+                for user in users:
+                    email_helpers.send_user_email(user, subject, 'send_notification_new_ext_comment.txt', ctx)
 
     def __unicode__(self):
         return '%s: %s...' % (self.comment_type, self.comment[:100])
