@@ -1,11 +1,11 @@
-Hei!!
+Hei!
 
-Tervetuloa sivustolle {{ site_name}}! Tässä on vahvistuskoodisi sivulle
-http://{{ site_domain }}/user/{{ user_username }}
+Tervetuloa sivustolle {{ site.name}}! Tässä on vahvistuskoodisi sivulle
+http://{{ site.domain }}/user/{{ user.username }}
 
 {{ code }}
 
-Jos et rekisteröitynyt sivustolle {{ site_name }} ystävällisesti
+Jos et rekisteröitynyt sivustolle {{ site.name }} ystävällisesti
 jätä tämä viesti huomioimatta.
 
 -- 
