@@ -1,0 +1,13 @@
+Hei!
+
+{{ comment.user.first_name }} {{ comment.user.last_name }} kommentoi kirjoitusta {{ post.heading }}
+
+===
+{{ comment.comment }}
+===
+
+http://{{ site.domain }}/admin/blog/post/{{ post.id }}/
+
+-- 
+mises staff
+
