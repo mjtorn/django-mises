@@ -1,6 +1,7 @@
 include django_mises/main/fixtures/initial_data.json
 include django_mises/blog/fixtures/initial_data.json
 recursive-include django_mises/main/templates/ *
+recursive-include django_mises/comments/templates/ *
 recursive-include django_mises/prelaunch/templates/ *
 recursive-include django_mises/users/templates/ *
 recursive-include django_mises/blog/templates/ *
