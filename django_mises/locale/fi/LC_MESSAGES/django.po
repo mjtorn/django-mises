@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-24 22:22+0300\n"
+"POT-Creation-Date: 2011-04-25 00:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,76 +49,88 @@ msgstr "Tulossa"
 msgid "Is published"
 msgstr "On julkaistu"
 
-#: blog/models.py:20
+#: blog/models.py:26
 msgid "Author"
 msgstr "Kirjoittaja"
 
-#: blog/models.py:21
+#: blog/models.py:27
 msgid "Co-Author"
 msgstr "Toinen kirjoittaja"
 
-#: blog/models.py:23
+#: blog/models.py:29
 msgid "Title"
 msgstr "Otsikko"
 
-#: blog/models.py:24
+#: blog/models.py:30
 msgid "Slug"
 msgstr "Tiiviste"
 
-#: blog/models.py:28
+#: blog/models.py:34
 msgid "Content"
 msgstr "Sisältö"
 
-#: blog/models.py:30
+#: blog/models.py:36
 msgid "Publish at"
 msgstr "Julkaisuajankohta"
 
-#: blog/models.py:33
+#: blog/models.py:39
 msgid "Updated at"
 msgstr "Päivitysajankohta"
+
+#: blog/models.py:108
+msgid "New post"
+msgstr ""
 
 #: comments/forms.py:96 comments/forms.py:109
 msgid "Comment"
 msgstr "Kommentti"
 
-#: comments/models.py:21
+#: comments/models.py:23
 msgid "User"
 msgstr "Käyttäjätunnus"
 
-#: comments/models.py:22
+#: comments/models.py:24
 msgid "Type"
 msgstr "Tyyppi"
 
-#: comments/models.py:24
+#: comments/models.py:26
 msgid "comment"
 msgstr "kommentti"
 
-#: comments/models.py:26
+#: comments/models.py:28
 msgid "date/time submitted"
 msgstr "Lähetysajankohta"
 
-#: comments/models.py:27
+#: comments/models.py:29
 msgid "IP address"
 msgstr "IP-osoite"
 
-#: comments/models.py:28
+#: comments/models.py:30
 msgid "is public"
 msgstr "On julkaistu"
 
-#: comments/models.py:29
+#: comments/models.py:31
 msgid ""
 "Uncheck this box to make the comment effectively disappear from the site."
 msgstr "Poista täppä piilottaaksesi kommentin sivulta"
 
-#: comments/models.py:31
+#: comments/models.py:33
 msgid "is removed"
 msgstr "on poistettu"
 
-#: comments/models.py:32
+#: comments/models.py:34
 msgid ""
 "Check this box if the comment is inappropriate. A \"This comment has been "
 "removed\" message will be displayed instead."
 msgstr "Lisää täppä jos kommentti on epäsovelias."
+
+#: comments/models.py:54
+msgid "New internal comment"
+msgstr "Uusi sisäinen kommentti"
+
+#: comments/models.py:57
+msgid "New comment"
+msgstr "Uusi kommentti"
 
 #: prelaunch/admin.py:24
 msgid "Found user for email"
