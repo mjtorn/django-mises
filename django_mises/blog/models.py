@@ -2,6 +2,8 @@
 
 from django.contrib.auth import models as auth_models
 
+from django.contrib.contenttypes import generic
+
 from django.core.urlresolvers import reverse
 
 from django.utils.translation import ugettext_lazy as _
@@ -9,6 +11,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 from django.db import models
+
+from django_mises.comments import models as comments_models
 
 from ckeditor import fields as ckeditor_fields
 
@@ -33,6 +37,8 @@ class Post(models.Model):
     publish_at.is_published_filter = True
 
     updated_at = models.DateTimeField(verbose_name=_('Updated at'), auto_now=True)
+
+    comments = generic.GenericRelation(comments_models.TypedComment, object_id_field='object_pk')
 
     class Meta:
         permissions = (
