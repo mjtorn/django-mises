@@ -3,7 +3,7 @@ Hei!
 {{ comment.user.first_name }} {{ comment.user.last_name }} kommentoi kirjoitusta {{ post.title }}
 
 ===
-{{ comment.comment }}
+{{ comment.comment|safe }}
 ===
 
 http://{{ site.domain }}/{{ post.get_absolute_url }}
