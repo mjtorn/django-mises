@@ -40,5 +40,14 @@ class UserProfile(models.Model):
 
             return self.verification_code
 
+def userprofile_creator(sender, instance, created, **kwargs):
+    """Create a profile if none exists
+    """
+
+    if created:
+        UserProfile.objects.create(user_id=instance.id)
+
+models.signals.post_save.connect(userprofile_creator, sender=auth_models.User, dispatch_uid='userprofile_creation')
+
 # EOF
 
