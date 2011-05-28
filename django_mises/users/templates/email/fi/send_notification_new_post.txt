@@ -2,6 +2,8 @@ Hei!
 
 Sivustolle {{ site.name }} on tullut uusi kirjoitus.
 
+"{{ post.title }}"
+
 Se on oikoluettavissa osoitteessa
 http://{{ site.domain }}/admin/blog/post/{{ post.id }}/
 
