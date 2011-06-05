@@ -25,15 +25,21 @@ class IsPublishedFilterSpec(DateFieldFilterSpec):
             (_('Yes'), {
                 '%s__isnull' % self.field.name: False,
                 '%s__lte' % self.field.name: now.date(),
+                'ot': 'asc',
+                'o': '4',
             }),
             (_('No'), {
                 '%s__isnull' % self.field.name: True,
             }),
             (_('Date set'), {
                 '%s__isnull' % self.field.name: False,
+                'ot': 'asc',
+                'o': '4',
             }),
             (_('Coming'), {
                 '%s__gt' % self.field.name: now.date(),
+                'ot': 'asc',
+                'o': '4',
             }),
         )
 
