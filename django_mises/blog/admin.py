@@ -16,7 +16,7 @@ class PostAdminForm(forms.ModelForm):
 
 
 class PostAdmin(reversion_admin.VersionAdmin):
-    list_display = ('title', 'author', 'co_author', 'updated_at', 'publish_at')
+    list_display = ('title', 'author', 'co_author', 'publish_at', 'updated_at')
     list_filter = ('publish_at',)
     fieldsets = (
         (None, {
