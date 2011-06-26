@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^info/?$', flatpages_views.flatpage, {'url': '/info/'}, name='info'),
     url(r'^links/?$', flatpages_views.flatpage, {'url': '/links/'}, name='links'),
     url(r'^shop/?$', flatpages_views.flatpage, {'url': '/shop/'}, name='shop'),
+    url(r'^downloads/?$', flatpages_views.flatpage, {'url': '/downloads/'}, name='downloads'),
 )
 
 # EOF
