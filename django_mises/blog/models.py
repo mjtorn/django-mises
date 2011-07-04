@@ -81,8 +81,8 @@ class Post(models.Model):
             # Policy dictates reprints are noted with <em> tags at the start
             em = pq(preview)('em')
             if em:
-                em_html = em.outerHtml()
-                if not preview.replace(em_html, ''):
+                em_html = pq(em).html()
+                if preview.replace(em_html, '').strip() == '<em></em>':
                     continue
 
             # At least once we have an unclosed <em> at the end
