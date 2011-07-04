@@ -85,7 +85,8 @@ class Post(models.Model):
                 if not preview.replace(em_html, ''):
                     continue
 
-            preview = preview.strip()
+            # At least once we have an unclosed <em> at the end
+            preview = pq(preview).text().strip()
             if preview and not self.preview:
                 self.preview = preview
                 if self.preview_img:
