@@ -79,8 +79,11 @@ class Post(models.Model):
             preview = pq(p).html()
 
             # Policy dictates reprints are noted with <em> tags at the start
-            if pq(preview)('em'):
-                continue
+            em = pq(preview)('em')
+            if em:
+                em_html = em.outerHtml()
+                if not preview.replace(em_html, ''):
+                    continue
 
             preview = preview.strip()
             if preview and not self.preview:
