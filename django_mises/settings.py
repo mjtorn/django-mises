@@ -112,6 +112,7 @@ INSTALLED_APPS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.core.context_processors.auth',
+    'django_mises.main.ctx_proc.current_site',
 )
 
 CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
