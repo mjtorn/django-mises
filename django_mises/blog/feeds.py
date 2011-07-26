@@ -47,7 +47,7 @@ class ArticlesFeed(Feed):
         return obj.title
 
     def item_description(self, obj):
-        return obj.preview
+        return obj.content
 
 # EOF
 
