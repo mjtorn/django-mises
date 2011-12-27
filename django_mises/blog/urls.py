@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^post/(?P<post_id>\d+)/(?P<slug>.+)/preview$', blog_views.post, {'preview': True}, name='preview'),
     url(r'^post/(?P<post_id>\d+)/(?P<slug>.+)$', blog_views.post, name='post'),
     url(r'^post/(?P<post_id>\d+)$', blog_views.post, name='post'),
+    url(r'^post/$', blog_views.list_posts, name='list'),
 
     url(r'^rss.xml$', blog_feeds.ArticlesFeed()),
     # compatibility

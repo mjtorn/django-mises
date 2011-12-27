@@ -18,6 +18,8 @@ from ckeditor import fields as ckeditor_fields
 
 from django_mises import email_helpers
 
+import datetime
+
 import filters
 
 # Create your models here.
@@ -64,6 +66,22 @@ class Post(models.Model):
             tail = '...'
 
         return '%s%s' % (self.preview[:300], tail)
+
+    def get_previous_post(self):
+        now = datetime.datetime.now()
+        posts = self.__class__.objects.filter(publish_at__lte=now).select_related()
+        try:
+            return posts.filter(publish_at__lt=self.publish_at).order_by('-publish_at')[0]
+        except IndexError:
+            return None
+
+    def get_next_post(self):
+        now = datetime.datetime.now()
+        posts = self.__class__.objects.filter(publish_at__lte=now).select_related()
+        try:
+            return posts.filter(publish_at__gt=self.publish_at).order_by('publish_at')[0]
+        except IndexError:
+            return None
 
     def save(self, *args, **kwargs):
         from pyquery import PyQuery as pq

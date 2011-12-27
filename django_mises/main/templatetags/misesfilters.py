@@ -1,8 +1,9 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
 from django.core.urlresolvers import resolve, reverse
-from django.core.urlresolvers import NoReverseMatch
+from django.core.urlresolvers import NoReverseMatch, Resolver404
 
+from django.http import Http404
 
 from django_mises.blog import models as blog_models
 
@@ -49,17 +50,16 @@ def blog_nav(context):
     """Required so we can test if we're the last blog entry
     """
 
-    now = datetime.datetime.now()
-
     post = context['post']
 
-    count = blog_models.Post.objects.filter(publish_at__lte=now, id__gt=post.id).count()
+    prev_post = post.get_previous_post()
+    next_post = post.get_next_post()
 
     return {
-        'has_previous': post.id > 1,
-        'has_next': count > 0,
-        'previous': post.id - 1,
-        'next': post.id + 1,
+        'has_previous': prev_post is not None,
+        'has_next': next_post is not None,
+        'previous': prev_post.id if prev_post else None,
+        'next': next_post.id if next_post else None,
     }
 
 @register.inclusion_tag('tags/nav.html', takes_context=True)
@@ -70,7 +70,14 @@ def nav(context, viewname, descr):
     ## Tuple of func, args, kwargs
     ## Somewhat better in Django 1.3
 
-    match = resolve(context['request'].META['PATH_INFO'])
+    try:
+        match = resolve(context['request'].META['PATH_INFO'])
+    except Resolver404, e:
+        return {
+            'active': False,
+            'link': reverse('index'),
+            'descr': descr,
+        }
 
     # It tries to match combos like index with {'url': '/info/'} that always fail
     try:
