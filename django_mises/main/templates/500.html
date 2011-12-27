@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+    <head>
+        <title>
+            Mises-Instituutti{% if title %} · {{ title }}{% endif %}
+        </title>
+        <link href="/media/css/screen.css" media="screen" type="text/css" rel="stylesheet" />
+        <link href="/media/css/print.css" media="print" type="text/css" rel="stylesheet" />
+        <link href="/media/css/DailyArticleStyles.css" media="print" type="text/css" rel="stylesheet" />
+
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+        {% block extra_head %}
+        {% endblock extra_head %}
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22074842-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </head>
+
+    <body class="wideside">
+        <div id="header">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="{% url index %}">Ludwig von Mises -Instituutti</a>
+                </h1>
+                <p class="title" style="left: 136px;">
+                    Ludwig von Mises -Instituutti
+                </p>
+                <p class="tagline" style="top: 60px">
+                    Vastustajat eivät minua lainkaan huolestuta. Totuus, jota olen etsinyt, on niin mieleinen, että tyydyn siihen, että olen saanut sanoa sen kansalaisilleni; se on liikkumaton, eikä pelkää, vaikka laineet vyöryttävät sappeansa sen päälle. Se kestää, vaikka omanvoitonpyynti hautaa sen pohjamutaan, jolla raivoavat aallot sen peittävät, mutta pysyy kuitenkin kaiken tämän keskellä vuorenlujana ja järkähtämättömänä. <em>-- Anders Chydenius</em>
+                </p>
+                {% include "tags/usernav.html" %}
+            </div>
+        </div>
+
+        <div class="container main">
+            <div id="content">
+                <h1>Palvelinvirhe!</h1>
+                <p>
+                    Valitettavasti sivulla tapahtui virhe. Kokeile ladata uudestaan tai <a href="/">palaa etusivulle</a>.
+                </p>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <div class="box">
+                    <p>Ludwig von Mises -Instituutti</p>
+                    <p>Yhteydenotot: <a href="mailto:staff@mises.fi">staff@mises.fi</a></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
