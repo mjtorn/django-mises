@@ -72,7 +72,7 @@ class Post(models.Model):
         posts = self.__class__.objects.filter(publish_at__lte=now).select_related()
         try:
             return posts.filter(publish_at__lt=self.publish_at).order_by('-publish_at')[0]
-        except IndexError:
+        except (IndexError, ValueError):
             return None
 
     def get_next_post(self):
@@ -80,7 +80,7 @@ class Post(models.Model):
         posts = self.__class__.objects.filter(publish_at__lte=now).select_related()
         try:
             return posts.filter(publish_at__gt=self.publish_at).order_by('publish_at')[0]
-        except IndexError:
+        except (IndexError, ValueError):
             return None
 
     def save(self, *args, **kwargs):
