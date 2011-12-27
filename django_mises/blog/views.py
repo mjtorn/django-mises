@@ -10,6 +10,8 @@ from blog import models as blog_models
 
 from django_mises import comments
 
+import datetime
+
 def post(request, post_id, slug=None, preview=False):
     """Index view
     """
@@ -46,6 +48,20 @@ def post(request, post_id, slug=None, preview=False):
     req_ctx = RequestContext(request, context)
 
     return render_to_response('post.html', req_ctx)
+
+def list_posts(request):
+    """List posts
+    """
+
+    now = datetime.datetime.now()
+    posts = blog_models.Post.objects.filter(publish_at__lte=now).select_related().order_by('-publish_at')
+
+    context = {
+        'posts': posts,
+    }
+    req_ctx = RequestContext(request, context)
+
+    return render_to_response('list.html', req_ctx)
 
 # EOF
 
