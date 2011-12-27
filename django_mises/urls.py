@@ -22,6 +22,9 @@ urlpatterns = patterns('',
 
 )
 
+handler404 = 'django_mises.main.views.handler404'
+handler500 = 'django_mises.main.views.handler500'
+
 if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT}, name='serve')
