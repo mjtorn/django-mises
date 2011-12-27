@@ -1,8 +1,9 @@
 # vim: tabstop=4 expandtab autoindent shiftwidth=4 fileencoding=utf-8
 
 from django.core.urlresolvers import resolve, reverse
-from django.core.urlresolvers import NoReverseMatch
+from django.core.urlresolvers import NoReverseMatch, Resolver404
 
+from django.http import Http404
 
 from django_mises.blog import models as blog_models
 
@@ -70,7 +71,14 @@ def nav(context, viewname, descr):
     ## Tuple of func, args, kwargs
     ## Somewhat better in Django 1.3
 
-    match = resolve(context['request'].META['PATH_INFO'])
+    try:
+        match = resolve(context['request'].META['PATH_INFO'])
+    except Resolver404, e:
+        return {
+            'active': False,
+            'link': reverse('index'),
+            'descr': descr,
+        }
 
     # It tries to match combos like index with {'url': '/info/'} that always fail
     try:
