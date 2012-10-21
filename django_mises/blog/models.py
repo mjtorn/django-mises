@@ -20,8 +20,6 @@ from django_mises import email_helpers
 
 import datetime
 
-import filters
-
 # Create your models here.
 
 class Post(models.Model):
